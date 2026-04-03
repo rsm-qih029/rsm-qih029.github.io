@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "My Projects",
+    "section": "",
+    "text": "This is Project 1\n\n\n\n\n\n\nQiang Hu\n\n\nApr 2, 2026\n\n\n\n\n\n\n\n\n\n\n\nThis is Project 2\n\n\n\n\n\n\nQiang Hu\n\n\nApr 1, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/project1/index.html",
+    "href": "blog/project1/index.html",
+    "title": "This is Project 1",
+    "section": "",
+    "text": "Section 1: Data\nI cleaned some data."
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Resume",
+    "section": "",
+    "text": "Download PDF file."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Qiang Hu",
+    "section": "",
+    "text": "Hi, I am Qiang Hu."
+  },
+  {
+    "objectID": "blog/project2/index.html",
+    "href": "blog/project2/index.html",
+    "title": "This is Project 2",
+    "section": "",
+    "text": "Add content."
+  }
+]
