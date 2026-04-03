@@ -7,18 +7,11 @@
     "text": "This is Project 1\n\n\n\n\n\n\nQiang Hu\n\n\nApr 2, 2026\n\n\n\n\n\n\n\n\n\n\n\nThis is Project 2\n\n\n\n\n\n\nQiang Hu\n\n\nApr 1, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "blog/project1/index.html",
-    "href": "blog/project1/index.html",
-    "title": "This is Project 1",
+    "objectID": "blog/project2/index.html",
+    "href": "blog/project2/index.html",
+    "title": "This is Project 2",
     "section": "",
-    "text": "Section 1: Data\nI cleaned some data."
-  },
-  {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "Resume",
-    "section": "",
-    "text": "Download PDF file."
+    "text": "This is my second project page."
   },
   {
     "objectID": "index.html",
@@ -28,10 +21,59 @@
     "text": "Hi, I am Qiang Hu. Welcome to my website."
   },
   {
-    "objectID": "blog/project2/index.html",
-    "href": "blog/project2/index.html",
-    "title": "This is Project 2",
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Resume",
     "section": "",
-    "text": "This is my second project page."
+    "text": "Download PDF file."
+  },
+  {
+    "objectID": "blog/project1/index.html",
+    "href": "blog/project1/index.html",
+    "title": "This is Project 1",
+    "section": "",
+    "text": "Section 1: Data\nI cleaned some data."
+  },
+  {
+    "objectID": "html_resume.html",
+    "href": "html_resume.html",
+    "title": "Qiang Hu’s resume",
+    "section": "",
+    "text": "San Diego, CA\n (858) 343-9200\n qih029@ucsd.edu\n qiang-hu-12971385 Skills ——————————————————————————–\nEnglish (Professional), Mandarin (Native)\nMATLAB, Python, C++, R, Excel, SQL, ETL, Business Intelligence Systems\n\n\n\n\n\nPublic Relations Sequence Junior\nCredit A Junior\nCustomer Service Manager Junior"
+  },
+  {
+    "objectID": "html_resume.html#contact",
+    "href": "html_resume.html#contact",
+    "title": "Qiang Hu’s resume",
+    "section": "",
+    "text": "San Diego, CA\n (858) 343-9200\n qih029@ucsd.edu\n qiang-hu-12971385 Skills ——————————————————————————–\nEnglish (Professional), Mandarin (Native)\nMATLAB, Python, C++, R, Excel, SQL, ETL, Business Intelligence Systems"
+  },
+  {
+    "objectID": "html_resume.html#certifications",
+    "href": "html_resume.html#certifications",
+    "title": "Qiang Hu’s resume",
+    "section": "",
+    "text": "Public Relations Sequence Junior\nCredit A Junior\nCustomer Service Manager Junior"
+  },
+  {
+    "objectID": "html_resume.html#education",
+    "href": "html_resume.html#education",
+    "title": "Qiang Hu’s resume",
+    "section": "Education",
+    "text": "Education\n\nUniversity of California, San Diego, Rady School of Management\nMaster of Science in Business Analytics\nSan Diego, CA\n12/2026\n\nMajor Courses: Business Analytics Consulting, Business Analytics in Marketing, Finance, and Operations, Customer Analytics, Collecting and Analyzing Large Data, Math and Programming for Business Analytics.\n\n\n\nUniversity of California, Riverside, A. Gary Anderson Graduate School of Management\nMaster of Business Administration\nRiverside, CA\n06/2022\n\nGPA: 3.47/4.00\nMajor Courses: Marketing Management, Management Ethics, Global Strategy and Management.\n\n\n\nBeijing International Studies University\nBachelor of Finance\nBeijing, China\n06/2020"
+  },
+  {
+    "objectID": "html_resume.html#professional-experience",
+    "href": "html_resume.html#professional-experience",
+    "title": "Qiang Hu’s resume",
+    "section": "Professional Experience",
+    "text": "Professional Experience\n\nIndustrial and Commercial Bank of China (ICBC)\nCredit Manager\nBeijing, China\n11/2024 - 07/2025\n\nManaged corporate credit services for major state-owned and defense industry clients including Aerospace Science, China Railway Construction and China Energy Group across high-tech, infrastructure and energy sectors.\nLed end-to-end credit processes from due diligence and proposal design to documentation, contract execution and post-loan monitoring.\nFacilitated high-level communications with corporate clients and internal departments to secure and execute large-scale credit facilities, overseeing projects with individual values from hundreds of millions to billions of RMB.\nDeveloped and enhanced post-loan management mechanisms, performing regular risk assessments and monitoring client fund usage to ensure portfolio quality and risk control.\n\n\n\nIndustrial and Commercial Bank of China (ICBC)\nPersonal Customer Manager\nBeijing, China\n08/2024 - 11/2024\n\nOriginated loans for small and medium enterprises, including hotels, restaurants, and construction firms, as well as individual clients, including over 500 employees of China Energy Group.\nManaged portfolios with single loans up to RMB 10 million and quarterly volumes exceeding RMB 100 million.\nMaintained and deepened client relationships, providing tailored solutions for account management, loan applications, and wealth management products.\n\n\n\nIndustrial and Commercial Bank of China (ICBC)\nCustomer Service Manager\nBeijing, China\n04/2023 - 08/2024\n\nManaged business and personal accounts for state-owned enterprises including payroll and foreign exchange.\nHandled payroll operations for nearly 100,000 employees and foreign exchange transactions exceeding USD 5 million per transaction.\n\n\n\nChina Guangfa Bank\nData Analyst Intern\nBeijing, China\n10/2019 - 11/2019\n\nSupported comprehensive financial investment services by preparing customized client plans and conducting in-depth market surveys using Excel and MATLAB.\nAnalyzed investment risks and returns, and educated clients on regulations and operational processes.\n\n\n\nIndustrial and Commercial Bank of China (ICBC)\nSummer Intern\nBeijing, China\n06/2019 - 08/2019\n\nAssisted in financial investment services and new product launches, generating analysis reports to support client decisions.\nCoordinated cross-departmental communication for system upgrades and functional configurations."
+  },
+  {
+    "objectID": "html_resume.html#professional-affiliations-leadership",
+    "href": "html_resume.html#professional-affiliations-leadership",
+    "title": "Qiang Hu’s resume",
+    "section": "Professional Affiliations & Leadership",
+    "text": "Professional Affiliations & Leadership\n\nAwards and Leadership\nBeijing / San Diego\nRecent\n\nAwarded 2023 and 2024 Outstanding Employee, ranking in the top 0.1% across more than 10,000 staff.\nLed the Economic World and Business Discussion Club, organizing simulations and workshops to strengthen data and analytical capabilities.\nOrganized programs for the Global Economic Application Association, promoting cross-disciplinary economic literacy and structured internship programs."
   }
 ]

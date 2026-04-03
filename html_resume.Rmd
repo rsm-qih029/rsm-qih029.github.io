@@ -1,0 +1,147 @@
+---
+title: "Qiang Hu's resume"
+author: Qiang Hu
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    self_contained: true
+# uncomment this line to produce HTML and PDF in RStudio:
+knit: pagedown::chrome_print
+---
+
+Aside
+================================================================================
+
+
+
+Contact Info {#contact}
+--------------------------------------------------------------------------------
+
+- <i class="fa fa-map-marker"></i> San Diego, CA
+- <i class="fa fa-phone"></i> (858) 343-9200
+- <i class="fa fa-envelope"></i> qih029@ucsd.edu
+- <i class="fa fa-linkedin"></i> qiang-hu-12971385
+Skills
+--------------------------------------------------------------------------------
+
+- English (Professional), Mandarin (Native)
+- MATLAB, Python, C++, R, Excel, SQL, ETL, Business Intelligence Systems
+
+Certifications
+--------------------------------------------------------------------------------
+
+- Public Relations Sequence Junior
+- Credit A Junior
+- Customer Service Manager Junior
+
+Main
+================================================================================
+
+Qiang Hu {#title}
+================================================================================
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+### University of California, San Diego, Rady School of Management
+
+Master of Science in Business Analytics
+
+San Diego, CA
+
+12/2026
+
+- Major Courses: Business Analytics Consulting, Business Analytics in Marketing, Finance, and Operations, Customer Analytics, Collecting and Analyzing Large Data, Math and Programming for Business Analytics.
+
+### University of California, Riverside, A. Gary Anderson Graduate School of Management
+
+Master of Business Administration
+
+Riverside, CA
+
+06/2022
+
+- GPA: 3.47/4.00
+- Major Courses: Marketing Management, Management Ethics, Global Strategy and Management.
+
+### Beijing International Studies University
+
+Bachelor of Finance
+
+Beijing, China
+
+06/2020
+
+Professional Experience {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+### Industrial and Commercial Bank of China (ICBC)
+
+Credit Manager
+
+Beijing, China
+
+11/2024 - 07/2025
+
+- Managed corporate credit services for major state-owned and defense industry clients including Aerospace Science, China Railway Construction and China Energy Group across high-tech, infrastructure and energy sectors.
+- Led end-to-end credit processes from due diligence and proposal design to documentation, contract execution and post-loan monitoring.
+- Facilitated high-level communications with corporate clients and internal departments to secure and execute large-scale credit facilities, overseeing projects with individual values from hundreds of millions to billions of RMB.
+- Developed and enhanced post-loan management mechanisms, performing regular risk assessments and monitoring client fund usage to ensure portfolio quality and risk control.
+
+### Industrial and Commercial Bank of China (ICBC)
+
+Personal Customer Manager
+
+Beijing, China
+
+08/2024 - 11/2024
+
+- Originated loans for small and medium enterprises, including hotels, restaurants, and construction firms, as well as individual clients, including over 500 employees of China Energy Group.
+- Managed portfolios with single loans up to RMB 10 million and quarterly volumes exceeding RMB 100 million.
+- Maintained and deepened client relationships, providing tailored solutions for account management, loan applications, and wealth management products.
+
+### Industrial and Commercial Bank of China (ICBC)
+
+Customer Service Manager
+
+Beijing, China
+
+04/2023 - 08/2024
+
+- Managed business and personal accounts for state-owned enterprises including payroll and foreign exchange.
+- Handled payroll operations for nearly 100,000 employees and foreign exchange transactions exceeding USD 5 million per transaction.
+
+### China Guangfa Bank
+
+Data Analyst Intern
+
+Beijing, China
+
+10/2019 - 11/2019
+
+- Supported comprehensive financial investment services by preparing customized client plans and conducting in-depth market surveys using Excel and MATLAB.
+- Analyzed investment risks and returns, and educated clients on regulations and operational processes.
+
+### Industrial and Commercial Bank of China (ICBC)
+
+Summer Intern
+
+Beijing, China
+
+06/2019 - 08/2019
+
+- Assisted in financial investment services and new product launches, generating analysis reports to support client decisions.
+- Coordinated cross-departmental communication for system upgrades and functional configurations.
+
+Professional Affiliations & Leadership {data-icon=star}
+--------------------------------------------------------------------------------
+
+### Awards and Leadership
+
+Beijing / San Diego
+
+Recent
+
+- Awarded 2023 and 2024 Outstanding Employee, ranking in the top 0.1% across more than 10,000 staff.
+- Led the Economic World and Business Discussion Club, organizing simulations and workshops to strengthen data and analytical capabilities.
+- Organized programs for the Global Economic Application Association, promoting cross-disciplinary economic literacy and structured internship programs.
