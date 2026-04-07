@@ -7,6 +7,16 @@ about:
     - icon: envelope
       text: Email
       href: mailto:qih029@ucsd.edu
+    - icon: github
+      text: GitHub
+      href: https://github.com/rsm-qih029
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/qiang-hu-12971385
 ---
 
 Hi, I am Qiang Hu. Welcome to my website.
+
+I am an MSBA student at UC San Diego with interests in analytics, finance, and strategy.
+
+This website presents my background, projects, and personal interests.

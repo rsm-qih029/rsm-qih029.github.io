@@ -10,14 +10,18 @@ website:
         text: About
       - href: resume.qmd
         text: Resume
-      - href: hobbies.qmd
-        text: Hobbies
       - href: blog.qmd
         text: Projects
+      - href: hobbies.qmd
+        text: Hobbies
+    right:
+      - icon: github
+        href: https://github.com/rsm-qih029
+      - icon: linkedin
+        href: https://www.linkedin.com/in/qiang-hu-12971385
 
 format:
   html:
     theme: cosmo
     css: styles.css
-    toc: true
-    
+    toc: false
