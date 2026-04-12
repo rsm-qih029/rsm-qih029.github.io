@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "My Projects",
     "section": "",
-    "text": "This is Project 1\n\n\n\n\n\n\nQiang Hu\n\n\nApr 2, 2026\n\n\n\n\n\n\n\n\n\n\n\nThis is Project 2\n\n\n\n\n\n\nQiang Hu\n\n\nApr 1, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "A/B Testing a Call to Action\n\n\n\n\n\n\nQiang Hu\n\n\nApr 12, 2026\n\n\n\n\n\n\n\n\n\n\n\nThis is Project 1\n\n\n\n\n\n\nQiang Hu\n\n\nApr 2, 2026\n\n\n\n\n\n\n\n\n\n\n\nThis is Project 2\n\n\n\n\n\n\nQiang Hu\n\n\nApr 1, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/project2/index.html",
@@ -14,18 +14,11 @@
     "text": "This is my second project page."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Qiang Hu",
+    "objectID": "blog/project1/index.html",
+    "href": "blog/project1/index.html",
+    "title": "This is Project 1",
     "section": "",
-    "text": "Hi, I am Qiang Hu. Welcome to my website.\nI am an MSBA student at UC San Diego with interests in analytics, finance, and strategy.\nThis website presents my background, projects, and personal interests."
-  },
-  {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "Resume",
-    "section": "",
-    "text": "Download PDF file."
+    "text": "Section 1: Data\nI cleaned some data."
   },
   {
     "objectID": "hobbies.html",
@@ -49,11 +42,95 @@
     "text": "Snowboarding\nSnowboarding is one of the ways I feel freedom most strongly.\nBeing on the mountain, surrounded by snow and open space, gives me a feeling that is difficult to describe in words.\nWhat I love most is not only the speed or the challenge, but also the emotion that comes with it.\nThere are moments on the mountain that feel so pure and beautiful that they can almost bring me to tears.\nFor me, snowboarding is more than a hobby.\nIt is a way to clear my mind, challenge myself, and appreciate a sense of freedom that keeps me grounded and inspired."
   },
   {
-    "objectID": "blog/project1/index.html",
-    "href": "blog/project1/index.html",
-    "title": "This is Project 1",
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Resume",
     "section": "",
-    "text": "Section 1: Data\nI cleaned some data."
+    "text": "Download PDF file."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Qiang Hu",
+    "section": "",
+    "text": "Hi, I am Qiang Hu. Welcome to my website.\nI am an MSBA student at UC San Diego with interests in analytics, finance, and strategy.\nThis website presents my background, projects, and personal interests."
+  },
+  {
+    "objectID": "blog/hw1/index.html",
+    "href": "blog/hw1/index.html",
+    "title": "A/B Testing a Call to Action",
+    "section": "",
+    "text": "Small changes in website design can have meaningful effects on user behavior. One of the clearest examples is the call to action, or CTA, which is the short prompt that encourages a visitor to do something specific. In this post, the goal is to increase newsletter sign-ups on a website landing page.\nSuppose a website owner is choosing between two CTA messages. CTA A says, “Sign up for our newsletter here!” and CTA B says, “Stay up to date by signing up!” The two phrases communicate nearly the same idea, but even subtle differences in wording can influence how people respond. That makes this a natural setting for an A/B test.\nThe basic idea is simple: randomly show CTA A to some visitors and CTA B to others, then compare the sign-up rates across the two groups. The deeper question is statistical. Even if one CTA is truly better, random variation means the observed sample difference will not perfectly match the truth. This is exactly where classical frequentist statistics becomes useful.\nIn what follows, I use simulated A/B test data to explain several core ideas in classical frequentist inference. These include sampling variability, the law of large numbers, bootstrap standard errors, the central limit theorem, hypothesis testing, regression, and the problem of peeking at results too early."
+  },
+  {
+    "objectID": "blog/hw1/index.html#introduction",
+    "href": "blog/hw1/index.html#introduction",
+    "title": "A/B Testing a Call to Action",
+    "section": "",
+    "text": "Small changes in website design can have meaningful effects on user behavior. One of the clearest examples is the call to action, or CTA, which is the short prompt that encourages a visitor to do something specific. In this post, the goal is to increase newsletter sign-ups on a website landing page.\nSuppose a website owner is choosing between two CTA messages. CTA A says, “Sign up for our newsletter here!” and CTA B says, “Stay up to date by signing up!” The two phrases communicate nearly the same idea, but even subtle differences in wording can influence how people respond. That makes this a natural setting for an A/B test.\nThe basic idea is simple: randomly show CTA A to some visitors and CTA B to others, then compare the sign-up rates across the two groups. The deeper question is statistical. Even if one CTA is truly better, random variation means the observed sample difference will not perfectly match the truth. This is exactly where classical frequentist statistics becomes useful.\nIn what follows, I use simulated A/B test data to explain several core ideas in classical frequentist inference. These include sampling variability, the law of large numbers, bootstrap standard errors, the central limit theorem, hypothesis testing, regression, and the problem of peeking at results too early."
+  },
+  {
+    "objectID": "blog/hw1/index.html#the-ab-test-as-a-statistical-problem",
+    "href": "blog/hw1/index.html#the-ab-test-as-a-statistical-problem",
+    "title": "A/B Testing a Call to Action",
+    "section": "The A/B Test as a Statistical Problem",
+    "text": "The A/B Test as a Statistical Problem\nAn A/B test is a controlled experiment. Each visitor is randomly assigned to one version of a webpage element, and the analyst compares outcomes across groups. In this example, the outcome is binary: each visitor either signs up for the newsletter or does not.\nFrom a statistical perspective, each CTA has a true but unknown conversion probability. Let ( p_A ) be the true sign-up rate under CTA A and ( p_B ) be the true sign-up rate under CTA B. The goal is to learn whether these two probabilities differ, and more specifically whether CTA B performs better than CTA A.\nThe challenge is that sample data are noisy. Even with random assignment, the observed conversion rates will fluctuate from sample to sample. A single experiment gives evidence, not certainty. Frequentist statistics provides tools for understanding how much uncertainty remains after observing the data."
+  },
+  {
+    "objectID": "blog/hw1/index.html#simulating-data",
+    "href": "blog/hw1/index.html#simulating-data",
+    "title": "A/B Testing a Call to Action",
+    "section": "Simulating Data",
+    "text": "Simulating Data\nTo make the ideas concrete, I simulate an experiment in which CTA A has a true conversion rate of 10% and CTA B has a true conversion rate of 12%. In practice, the true rates are unknown, but simulation lets us study how statistical tools behave when the underlying data-generating process is known.\n\nab_data &lt;- tibble(\n  group = rep(c(\"A\", \"B\"), each = n_per_group),\n  signup = c(\n    rbinom(n_per_group, size = 1, prob = p_a),\n    rbinom(n_per_group, size = 1, prob = p_b)\n  )\n)\n\nsummary_table &lt;- ab_data %&gt;%\n  group_by(group) %&gt;%\n  summarise(\n    visitors = n(),\n    signups = sum(signup),\n    conversion_rate = mean(signup),\n    .groups = \"drop\"\n  )\n\nsummary_table %&gt;%\n  mutate(conversion_rate = round(100 * conversion_rate, 2)) %&gt;%\n  gt() %&gt;%\n  cols_label(\n    group = \"CTA\",\n    visitors = \"Visitors\",\n    signups = \"Sign-ups\",\n    conversion_rate = \"Conversion Rate (%)\"\n  )\n\n\n\n\n\n\n\nCTA\nVisitors\nSign-ups\nConversion Rate (%)\n\n\n\n\nA\n1000\n112\n11.2\n\n\nB\n1000\n129\n12.9\n\n\n\n\n\n\n\nThe table above shows one simulated realization of the experiment. If I reran the simulation, the exact conversion rates would change slightly. That is an important lesson: the observed difference in the sample is not the same thing as the true difference in the population. Statistical inference exists because the sample is only one noisy draw from a broader process."
+  },
+  {
+    "objectID": "blog/hw1/index.html#the-law-of-large-numbers",
+    "href": "blog/hw1/index.html#the-law-of-large-numbers",
+    "title": "A/B Testing a Call to Action",
+    "section": "The Law of Large Numbers",
+    "text": "The Law of Large Numbers\nOne of the most important ideas in statistics is the law of large numbers. It says that as the sample size increases, the sample average tends to move closer to the true population average. In an A/B test, that means the observed conversion rate becomes more stable as more visitors enter the experiment.\nTo illustrate this, I repeatedly simulate outcomes under CTA B and track the cumulative conversion rate as the sample grows.\n\n\n\n\n\n\n\n\n\nEarly in the process, the cumulative conversion rate jumps around a lot because each new visitor has a noticeable effect on the running average. As more observations accumulate, the line becomes more stable and drifts toward the true 12% rate. This is why small experiments can be misleading and why larger samples usually produce more trustworthy estimates."
+  },
+  {
+    "objectID": "blog/hw1/index.html#bootstrap-standard-errors",
+    "href": "blog/hw1/index.html#bootstrap-standard-errors",
+    "title": "A/B Testing a Call to Action",
+    "section": "Bootstrap Standard Errors",
+    "text": "Bootstrap Standard Errors\nA point estimate is only part of the story. We also need to know how much that estimate might vary from sample to sample. One way to measure that uncertainty is with a standard error.\nThe bootstrap is a flexible and intuitive method for doing this. The idea is to repeatedly resample the observed data with replacement, compute the statistic of interest for each resample, and then examine the distribution of those bootstrap statistics. Here, the statistic of interest is the difference in conversion rates between CTA B and CTA A.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObserved Difference\nBootstrap SE\n2.5% Quantile\n97.5% Quantile\n\n\n\n\n0.017\n0.0145\n-0.011\n0.046\n\n\n\n\n\n\n\nThe bootstrap distribution is centered near the observed sample difference, while its spread reflects sampling uncertainty. The bootstrap standard error gives a useful summary of how much the estimated difference could fluctuate across repeated samples. The interval is also helpful: if it sits mostly above zero, that supports the idea that CTA B is outperforming CTA A in a meaningful way."
+  },
+  {
+    "objectID": "blog/hw1/index.html#the-central-limit-theorem",
+    "href": "blog/hw1/index.html#the-central-limit-theorem",
+    "title": "A/B Testing a Call to Action",
+    "section": "The Central Limit Theorem",
+    "text": "The Central Limit Theorem\nThe central limit theorem explains why so many inferential procedures work well in practice. Informally, it says that when the sample size is sufficiently large, the sampling distribution of a sample mean tends to be approximately normal, even when the raw data themselves are not normally distributed.\nThat matters here because conversion data are binary, not continuous. Each visitor either signs up or does not. Even so, the average sign-up rate across many visitors can still have an approximately normal sampling distribution.\n\n\n\n\n\n\n\n\n\nThe histogram is centered near the true conversion rate and has an approximately bell-shaped form. This does not mean that individual sign-up outcomes are normal. It means that the sample mean behaves approximately normally when enough observations are collected. This result is one of the main reasons confidence intervals and hypothesis tests are so useful in large-sample A/B testing."
+  },
+  {
+    "objectID": "blog/hw1/index.html#hypothesis-testing",
+    "href": "blog/hw1/index.html#hypothesis-testing",
+    "title": "A/B Testing a Call to Action",
+    "section": "Hypothesis Testing",
+    "text": "Hypothesis Testing\nOnce we have an estimate and a way to quantify uncertainty, we can formally test whether the difference between the two CTAs is statistically meaningful.\nThe null hypothesis says that the two versions perform equally well:\n[ H_0: p_A = p_B ]\nThe alternative hypothesis says that the conversion rates differ:\n[ H_1: p_A p_B ]\nA standard test for two proportions compares the observed difference to what would be expected under the null. If the observed difference would be very unlikely when the null is true, the p-value becomes small and we reject the null hypothesis.\n\ntest_result &lt;- prop.test(\n  x = c(sum(signup_a), sum(signup_b)),\n  n = c(length(signup_a), length(signup_b)),\n  correct = FALSE\n)\n\ntibble(\n  estimate_A = unname(test_result$estimate[1]),\n  estimate_B = unname(test_result$estimate[2]),\n  p_value = test_result$p.value\n) %&gt;%\n  mutate(across(everything(), round, 4)) %&gt;%\n  gt() %&gt;%\n  cols_label(\n    estimate_A = \"Estimated Rate: A\",\n    estimate_B = \"Estimated Rate: B\",\n    p_value = \"P-value\"\n  )\n\n\n\n\n\n\n\nEstimated Rate: A\nEstimated Rate: B\nP-value\n\n\n\n\n0.112\n0.129\n0.2429\n\n\n\n\n\n\n\nIf the p-value is small, the sample provides evidence against the null hypothesis of equal performance. In that case, it becomes reasonable to conclude that the CTA wording matters. At the same time, statistical significance should not be confused with practical significance. A result can be statistically significant but still too small to matter much in business terms. Good analysis considers both."
+  },
+  {
+    "objectID": "blog/hw1/index.html#the-t-test-as-a-regression",
+    "href": "blog/hw1/index.html#the-t-test-as-a-regression",
+    "title": "A/B Testing a Call to Action",
+    "section": "The T-Test as a Regression",
+    "text": "The T-Test as a Regression\nA useful insight in applied statistics is that a difference-in-means comparison can also be written as a regression model. Even though the outcome here is binary, a simple linear regression still gives an interpretable representation of the A/B test.\nI create an indicator variable for whether a visitor saw CTA B and regress the sign-up outcome on that indicator.\n\n\n\n\n\n\n\n\nTerm\nEstimate\nStd. Error\nP-value\n\n\n\n\n(Intercept)\n0.112\n0.0103\n0.0000\n\n\ngroup_b\n0.017\n0.0146\n0.2432\n\n\n\n\n\n\n\nIn this regression, the intercept is the mean conversion rate for CTA A. The coefficient on the CTA B indicator is the difference in average conversion rates between the two groups. In other words, the regression coefficient captures the same treatment effect that the A/B test is designed to estimate.\nThis perspective is valuable because it generalizes naturally. In more realistic settings, analysts may want to adjust for device type, traffic source, geography, or prior user characteristics. Regression provides a clean framework for extending the same logic to more complex experiments."
+  },
+  {
+    "objectID": "blog/hw1/index.html#the-problem-with-peeking",
+    "href": "blog/hw1/index.html#the-problem-with-peeking",
+    "title": "A/B Testing a Call to Action",
+    "section": "The Problem with Peeking",
+    "text": "The Problem with Peeking\nOne of the most common practical mistakes in experimentation is peeking at the data too early and too often. Imagine checking the p-value every time another small batch of visitors arrives and ending the experiment as soon as significance appears. That strategy may feel efficient, but it can dramatically increase the false positive rate.\nTo demonstrate this, I simulate many experiments in which CTA A and CTA B actually have the same true conversion rate. Under that setup, any significant result is a false positive. I then repeatedly “peek” during the experiment and stop whenever significance appears.\n\npeek_once &lt;- function(n_total = 1000, step = 50, p = 0.10) {\n  a &lt;- rbinom(n_total, 1, p)\n  b &lt;- rbinom(n_total, 1, p)\n\n  for (n in seq(step, n_total, by = step)) {\n    pval &lt;- prop.test(\n      x = c(sum(a[1:n]), sum(b[1:n])),\n      n = c(n, n),\n      correct = FALSE\n    )$p.value\n\n    if (pval &lt; 0.05) {\n      return(1)\n    }\n  }\n\n  return(0)\n}\n\npeek_results &lt;- map_dbl(1:1000, function(i) peek_once())\n\ntibble(\n  false_positive_rate_with_peeking = mean(peek_results)\n) %&gt;%\n  mutate(across(everything(), round, 4)) %&gt;%\n  gt() %&gt;%\n  cols_label(false_positive_rate_with_peeking = \"False Positive Rate\")\n\n\n\n\n\n\n\nFalse Positive Rate\n\n\n\n\n0.249\n\n\n\n\n\n\n\nIf the false positive rate rises noticeably above 5%, then the nominal significance cutoff is no longer providing honest error control. In plain language, repeated unscheduled checking makes it too easy to convince ourselves that a difference exists when it does not. This is why experimenters usually commit to a target sample size or a formal stopping rule before examining the final result."
+  },
+  {
+    "objectID": "blog/hw1/index.html#conclusion",
+    "href": "blog/hw1/index.html#conclusion",
+    "title": "A/B Testing a Call to Action",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis A/B testing example shows how a seemingly simple website decision connects to several foundational ideas in classical frequentist statistics. Observed conversion rates are always subject to random variation, so the analyst must go beyond raw sample averages and think carefully about uncertainty.\nSimulation makes these ideas easier to see. The law of large numbers explains why estimates stabilize in larger samples. The bootstrap helps quantify uncertainty around an observed difference. The central limit theorem shows why sample averages often have approximately normal behavior. Hypothesis testing formalizes evidence against the null, regression reframes the same comparison in a flexible modeling framework, and the peeking example highlights how misuse of inferential tools can create misleading conclusions.\nThe main lesson is that A/B testing is not simply about picking whichever version has the larger observed conversion rate. It is about making principled decisions under uncertainty, with both statistical reasoning and practical interpretation working together."
   },
   {
     "objectID": "html_resume.html",
