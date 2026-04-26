@@ -33,7 +33,7 @@ Small changes in website design can have meaningful effects on user behavior. On
 
 Suppose a website owner is choosing between two CTA messages. CTA A says, **"Sign up for our newsletter here!"** and CTA B says, **"Stay up to date by signing up!"** The two phrases communicate nearly the same idea, but even subtle differences in wording can influence how people respond. That makes this a natural setting for an A/B test.
 
-The basic idea is simple: randomly show CTA A to some visitors and CTA B to others, then compare the sign-up rates across the two groups. The deeper question is statistical. Even if one CTA is truly better, random variation means the observed sample difference will not perfectly match the truth. This is exactly where classical frequentist statistics becomes useful.
+The basic idea is simple: randomly show CTA A to one group of visitors and CTA B to another, then compare the sign-up rates across the two groups.The deeper question is statistical. Even if one CTA is truly better, random variation means the observed sample difference will not perfectly match the truth. This is exactly where classical frequentist statistics becomes useful.
 
 In what follows, I use simulated A/B test data to explain several core ideas in classical frequentist inference. These include sampling variability, the law of large numbers, bootstrap standard errors, the central limit theorem, hypothesis testing, regression, and the problem of peeking at results too early.
 
@@ -322,4 +322,4 @@ This A/B testing example shows how a seemingly simple website decision connects 
 
 Simulation makes these ideas easier to see. The law of large numbers explains why estimates stabilize in larger samples. The bootstrap helps quantify uncertainty around an observed difference. The central limit theorem shows why sample averages often have approximately normal behavior. Hypothesis testing formalizes evidence against the null, regression reframes the same comparison in a flexible modeling framework, and the peeking example highlights how misuse of inferential tools can create misleading conclusions.
 
-The main lesson is that A/B testing is not simply about picking whichever version has the larger observed conversion rate. It is about making principled decisions under uncertainty, with both statistical reasoning and practical interpretation working together.
+The main lesson is that A/B testing is not just about choosing the version with the higher observed conversion rate in one sample. A more careful interpretation asks whether the observed difference is large enough, precise enough, and stable enough to support a real decision. In practice, that means combining statistical evidence with business judgment. Even when CTA B appears to perform better, a good analyst should still ask whether the gain is meaningful in practical terms and whether the experiment was conducted in a way that avoids avoidable mistakes such as premature peeking.
