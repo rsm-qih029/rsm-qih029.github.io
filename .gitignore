@@ -5,3 +5,13 @@ _site/
 */.DS_Store
 /.quarto/
 **/*.quarto_ipynb
+
+# cloned classmates repos
+rsm-*.github.io/
+
+# local/cache files
+.Rproj.user/
+.quarto/
+_site/
+.DS_Store
+.Rhistory
