@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Qiang Hu">
-<meta name="dcterms.date" content="2026-05-13">
 
-<title>Qiang Hu’s resume – Qiang Hu</title>
+<title>My Projects – Qiang Hu</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -28,23 +26,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,9 +72,67 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<link rel="stylesheet" href="styles.css">
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -84,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Qiang Hu</span>
     </a>
   </div>
@@ -95,19 +153,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resume.html"> 
+    <a class="nav-link" href="../resume.html"> 
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../blog.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./hobbies.html"> 
+    <a class="nav-link" href="../hobbies.html"> 
 <span class="menu-text">Hobbies</span></a>
   </li>  
 </ul>
@@ -139,26 +197,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Qiang Hu’s resume</h1>
+<h1 class="title">My Projects</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Qiang Hu </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">May 13, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -168,135 +214,107 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="aside" class="level1">
-<h1>Aside</h1>
-<section id="contact" class="level2">
-<h2 class="anchored" data-anchor-id="contact">Contact Info</h2>
-<ul>
-<li><p><i class="fa fa-map-marker"></i> San Diego, CA</p></li>
-<li><p><i class="fa fa-phone"></i> (858) 343-9200</p></li>
-<li><p><i class="fa fa-envelope"></i> qih029@ucsd.edu</p></li>
-<li><p><i class="fa fa-linkedin"></i> qiang-hu-12971385 Skills ——————————————————————————–</p></li>
-<li><p>English (Professional), Mandarin (Native)</p></li>
-<li><p>MATLAB, Python, C++, R, Excel, SQL, ETL, Business Intelligence Systems</p></li>
-</ul>
-</section>
-<section id="certifications" class="level2">
-<h2 class="anchored" data-anchor-id="certifications">Certifications</h2>
-<ul>
-<li>Public Relations Sequence Junior</li>
-<li>Credit A Junior</li>
-<li>Customer Service Manager Junior</li>
-</ul>
-</section>
-</section>
-<section id="main" class="level1">
-<h1>Main</h1>
-</section>
-<section id="title" class="level1">
-<h1>Qiang Hu</h1>
-<section id="education" class="level2" data-icon="graduation-cap" data-concise="true">
-<h2 data-icon="graduation-cap" data-concise="true" class="anchored" data-anchor-id="education">Education</h2>
-<section id="university-of-california-san-diego-rady-school-of-management" class="level3">
-<h3 class="anchored" data-anchor-id="university-of-california-san-diego-rady-school-of-management">University of California, San Diego, Rady School of Management</h3>
-<p>Master of Science in Business Analytics</p>
-<p>San Diego, CA</p>
-<p>12/2026</p>
-<ul>
-<li>Major Courses: Business Analytics Consulting, Business Analytics in Marketing, Finance, and Operations, Customer Analytics, Collecting and Analyzing Large Data, Math and Programming for Business Analytics.</li>
-</ul>
-</section>
-<section id="university-of-california-riverside-a.-gary-anderson-graduate-school-of-management" class="level3">
-<h3 class="anchored" data-anchor-id="university-of-california-riverside-a.-gary-anderson-graduate-school-of-management">University of California, Riverside, A. Gary Anderson Graduate School of Management</h3>
-<p>Master of Business Administration</p>
-<p>Riverside, CA</p>
-<p>06/2022</p>
-<ul>
-<li>GPA: 3.47/4.00</li>
-<li>Major Courses: Marketing Management, Management Ethics, Global Strategy and Management.</li>
-</ul>
-</section>
-<section id="beijing-international-studies-university" class="level3">
-<h3 class="anchored" data-anchor-id="beijing-international-studies-university">Beijing International Studies University</h3>
-<p>Bachelor of Finance</p>
-<p>Beijing, China</p>
-<p>06/2020</p>
-</section>
-</section>
-<section id="professional-experience" class="level2" data-icon="suitcase">
-<h2 data-icon="suitcase" class="anchored" data-anchor-id="professional-experience">Professional Experience</h2>
-<section id="industrial-and-commercial-bank-of-china-icbc" class="level3">
-<h3 class="anchored" data-anchor-id="industrial-and-commercial-bank-of-china-icbc">Industrial and Commercial Bank of China (ICBC)</h3>
-<p>Credit Manager</p>
-<p>Beijing, China</p>
-<p>11/2024 - 07/2025</p>
-<ul>
-<li>Managed corporate credit services for major state-owned and defense industry clients including Aerospace Science, China Railway Construction and China Energy Group across high-tech, infrastructure and energy sectors.</li>
-<li>Led end-to-end credit processes from due diligence and proposal design to documentation, contract execution and post-loan monitoring.</li>
-<li>Facilitated high-level communications with corporate clients and internal departments to secure and execute large-scale credit facilities, overseeing projects with individual values from hundreds of millions to billions of RMB.</li>
-<li>Developed and enhanced post-loan management mechanisms, performing regular risk assessments and monitoring client fund usage to ensure portfolio quality and risk control.</li>
-</ul>
-</section>
-<section id="industrial-and-commercial-bank-of-china-icbc-1" class="level3">
-<h3 class="anchored" data-anchor-id="industrial-and-commercial-bank-of-china-icbc-1">Industrial and Commercial Bank of China (ICBC)</h3>
-<p>Personal Customer Manager</p>
-<p>Beijing, China</p>
-<p>08/2024 - 11/2024</p>
-<ul>
-<li>Originated loans for small and medium enterprises, including hotels, restaurants, and construction firms, as well as individual clients, including over 500 employees of China Energy Group.</li>
-<li>Managed portfolios with single loans up to RMB 10 million and quarterly volumes exceeding RMB 100 million.</li>
-<li>Maintained and deepened client relationships, providing tailored solutions for account management, loan applications, and wealth management products.</li>
-</ul>
-</section>
-<section id="industrial-and-commercial-bank-of-china-icbc-2" class="level3">
-<h3 class="anchored" data-anchor-id="industrial-and-commercial-bank-of-china-icbc-2">Industrial and Commercial Bank of China (ICBC)</h3>
-<p>Customer Service Manager</p>
-<p>Beijing, China</p>
-<p>04/2023 - 08/2024</p>
-<ul>
-<li>Managed business and personal accounts for state-owned enterprises including payroll and foreign exchange.</li>
-<li>Handled payroll operations for nearly 100,000 employees and foreign exchange transactions exceeding USD 5 million per transaction.</li>
-</ul>
-</section>
-<section id="china-guangfa-bank" class="level3">
-<h3 class="anchored" data-anchor-id="china-guangfa-bank">China Guangfa Bank</h3>
-<p>Data Analyst Intern</p>
-<p>Beijing, China</p>
-<p>10/2019 - 11/2019</p>
-<ul>
-<li>Supported comprehensive financial investment services by preparing customized client plans and conducting in-depth market surveys using Excel and MATLAB.</li>
-<li>Analyzed investment risks and returns, and educated clients on regulations and operational processes.</li>
-</ul>
-</section>
-<section id="industrial-and-commercial-bank-of-china-icbc-3" class="level3">
-<h3 class="anchored" data-anchor-id="industrial-and-commercial-bank-of-china-icbc-3">Industrial and Commercial Bank of China (ICBC)</h3>
-<p>Summer Intern</p>
-<p>Beijing, China</p>
-<p>06/2019 - 08/2019</p>
-<ul>
-<li>Assisted in financial investment services and new product launches, generating analysis reports to support client decisions.</li>
-<li>Coordinated cross-departmental communication for system upgrades and functional configurations.</li>
-</ul>
-</section>
-</section>
-<section id="professional-affiliations-leadership" class="level2" data-icon="star">
-<h2 data-icon="star" class="anchored" data-anchor-id="professional-affiliations-leadership">Professional Affiliations &amp; Leadership</h2>
-<section id="awards-and-leadership" class="level3">
-<h3 class="anchored" data-anchor-id="awards-and-leadership">Awards and Leadership</h3>
-<p>Beijing / San Diego</p>
-<p>Recent</p>
-<ul>
-<li>Awarded 2023 and 2024 Outstanding Employee, ranking in the top 0.1% across more than 10,000 staff.</li>
-<li>Led the Economic World and Business Discussion Club, organizing simulations and workshops to strengthen data and analytical capabilities.</li>
-<li>Organized programs for the Global Economic Application Association, promoting cross-disciplinary economic literacy and structured internship programs.</li>
-</ul>
 
 
-</section>
-</section>
-</section>
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1778655600000" data-listing-file-modified-sort="1777162747937" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="23" data-listing-word-count-sort="4451">
+<a href="../rsm-huy017.github.io/blog/homework2/hw2_questions.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img loading='lazy' src="blog/homework2/hw2_questions_files/figure-html/did-graph-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Replication of Card and Krueger (1994)
+</h5>
+<div class="card-text listing-description delink">
+This post replicates the main analysis from <strong>Card and Krueger (1994), “Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania.”</strong> Th…<strong></strong>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Huiru Yang
+</div>
+<div class="listing-date">
+May 13, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1778655600000" data-listing-file-modified-sort="1777162952219" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2833">
+<a href="../rsm-huy017.github.io/blog/homework1/hw1_questions.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img loading='lazy' src="blog/homework1/hw1_questions_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+A/B Testing a Call to Action
+</h5>
+<div class="card-text listing-description delink">
+Suppose I run a website with a landing page that invites visitors to subscribe to a newsletter. A small design choice on that page is the wording of the call to action, or…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Huiru Yang
+</div>
+<div class="listing-date">
+May 13, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1775458800000" data-listing-file-modified-sort="1777162747938" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="17">
+<a href="../rsm-huy017.github.io/blog/project1/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../rsm-huy017.github.io/blog/project1/image.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Project 1
+</h5>
+<div class="card-text listing-description delink">
+<p>A sample project page</p>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+Apr 6, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-date-sort="1775458800000" data-listing-file-modified-sort="1777162747938" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<a href="../rsm-huy017.github.io/blog/project2/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../rsm-huy017.github.io/blog/project2/image.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Project 2
+</h5>
+<div class="card-text listing-description delink">
+<p>Another sample project page</p>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+Apr 6, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

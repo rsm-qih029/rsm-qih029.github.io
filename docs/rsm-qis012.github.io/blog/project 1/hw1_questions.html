@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Qiang Hu">
+<meta name="author" content="Qingyao Sun">
 <meta name="dcterms.date" content="2026-05-13">
 
 <title>A/B Testing a Call to Action – Qiang Hu</title>
@@ -63,23 +63,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,17 +109,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Qiang Hu</span>
     </a>
   </div>
@@ -130,19 +130,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../resume.html"> 
+    <a class="nav-link" href="../../../resume.html"> 
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html"> 
+    <a class="nav-link" href="../../../blog.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../hobbies.html"> 
+    <a class="nav-link" href="../../../hobbies.html"> 
 <span class="menu-text">Hobbies</span></a>
   </li>  
 </ul>
@@ -168,24 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#the-ab-test-as-a-statistical-problem" id="toc-the-ab-test-as-a-statistical-problem" class="nav-link" data-scroll-target="#the-ab-test-as-a-statistical-problem">The A/B Test as a Statistical Problem</a></li>
-  <li><a href="#simulating-data" id="toc-simulating-data" class="nav-link" data-scroll-target="#simulating-data">Simulating Data</a></li>
-  <li><a href="#the-law-of-large-numbers" id="toc-the-law-of-large-numbers" class="nav-link" data-scroll-target="#the-law-of-large-numbers">The Law of Large Numbers</a></li>
-  <li><a href="#bootstrap-standard-errors" id="toc-bootstrap-standard-errors" class="nav-link" data-scroll-target="#bootstrap-standard-errors">Bootstrap Standard Errors</a></li>
-  <li><a href="#the-central-limit-theorem" id="toc-the-central-limit-theorem" class="nav-link" data-scroll-target="#the-central-limit-theorem">The Central Limit Theorem</a></li>
-  <li><a href="#hypothesis-testing" id="toc-hypothesis-testing" class="nav-link" data-scroll-target="#hypothesis-testing">Hypothesis Testing</a></li>
-  <li><a href="#the-t-test-as-a-regression" id="toc-the-t-test-as-a-regression" class="nav-link" data-scroll-target="#the-t-test-as-a-regression">The T-Test as a Regression</a></li>
-  <li><a href="#the-problem-with-peeking" id="toc-the-problem-with-peeking" class="nav-link" data-scroll-target="#the-problem-with-peeking">The Problem with Peeking</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -202,7 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Qiang Hu </p>
+             <p>Qingyao Sun </p>
           </div>
   </div>
     
@@ -223,65 +206,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Small changes in website design can have meaningful effects on user behavior. One of the clearest examples is the call to action, or CTA, which is the short prompt that encourages a visitor to do something specific. In this post, the goal is to increase newsletter sign-ups on a website landing page.</p>
-<p>Suppose a website owner is choosing between two CTA messages. CTA A says, <strong>“Sign up for our newsletter here!”</strong> and CTA B says, <strong>“Stay up to date by signing up!”</strong> The two phrases communicate nearly the same idea, but even subtle differences in wording can influence how people respond. That makes this a natural setting for an A/B test.</p>
-<p>The basic idea is simple: randomly show CTA A to some visitors and CTA B to others, then compare the sign-up rates across the two groups. The deeper question is statistical. Even if one CTA is truly better, random variation means the observed sample difference will not perfectly match the truth. This is exactly where classical frequentist statistics becomes useful.</p>
-<p>In what follows, I use simulated A/B test data to explain several core ideas in classical frequentist inference. These include sampling variability, the law of large numbers, bootstrap standard errors, the central limit theorem, hypothesis testing, regression, and the problem of peeking at results too early.</p>
+<p>A website’s landing page often includes a short message encouraging visitors to sign up for a newsletter. Suppose I want to test whether different wording changes the sign-up rate. In version A, the call to action reads “Sign up for our newsletter here!” In version B, it reads “Stay up to date by signing up!”</p>
+<p>To compare the two versions, I will run an A/B test. Visitors are randomly assigned to see one of the two CTAs, and I then compare the sign-up rates across the two groups. Because assignment is random, differences in outcomes can be interpreted as evidence about the effect of the CTA wording rather than pre-existing differences between visitors.</p>
+<p>In this post, I use a simulated A/B test to illustrate several core ideas from classical frequentist statistics, including the Law of Large Numbers, bootstrap standard errors, the Central Limit Theorem, hypothesis testing, regression, and the danger of peeking at results too often. Because the true conversion probabilities are known in the simulation, the results can be compared directly with the data-generating process.</p>
 </section>
 <section id="the-ab-test-as-a-statistical-problem" class="level2">
 <h2 class="anchored" data-anchor-id="the-ab-test-as-a-statistical-problem">The A/B Test as a Statistical Problem</h2>
-<p>An A/B test is a controlled experiment. Each visitor is randomly assigned to one version of a webpage element, and the analyst compares outcomes across groups. In this example, the outcome is binary: each visitor either signs up for the newsletter or does not.</p>
-<p>From a statistical perspective, each CTA has a true but unknown conversion probability. Let ( p_A ) be the true sign-up rate under CTA A and ( p_B ) be the true sign-up rate under CTA B. The goal is to learn whether these two probabilities differ, and more specifically whether CTA B performs better than CTA A.</p>
-<p>The challenge is that sample data are noisy. Even with random assignment, the observed conversion rates will fluctuate from sample to sample. A single experiment gives evidence, not certainty. Frequentist statistics provides tools for understanding how much uncertainty remains after observing the data.</p>
+<p>Each visitor either signs up or does not sign up, so it is natural to model each outcome as a Bernoulli random variable. Let (_A) denote the probability that a visitor signs up after seeing CTA A, and let (_B) denote the probability of signing up after seeing CTA B.</p>
+<p>The quantity of interest is the difference in sign-up probabilities:</p>
+<p>[ = _A - _B. ]</p>
+<p>If (&gt; 0), CTA A performs better. If (&lt; 0), CTA B performs better. In practice, we do not observe (_A) and (_B) directly, so we estimate them using the sample proportions from the two groups.</p>
+<p>Because the outcome is binary, the sample mean in each group is simply the observed sign-up rate. That means our estimator of the treatment effect is</p>
+<p>[ = {X}_A - {X}_B = _A - _B. ]</p>
+<p>This estimator is simple and intuitive: it measures how much higher the observed sign-up rate is in one group than in the other.</p>
 </section>
 <section id="simulating-data" class="level2">
 <h2 class="anchored" data-anchor-id="simulating-data">Simulating Data</h2>
-<p>To make the ideas concrete, I simulate an experiment in which CTA A has a true conversion rate of 10% and CTA B has a true conversion rate of 12%. In practice, the true rates are unknown, but simulation lets us study how statistical tools behave when the underlying data-generating process is known.</p>
+<p>In a real A/B test, the true sign-up probabilities would be unknown. For this exercise, I set them manually so that I can study how the estimator behaves when the truth is known. I assume that (_A = 0.22) and (_B = 0.18), so the true treatment effect is</p>
+<p>[ = 0.22 - 0.18 = 0.04. ]</p>
+<p>Then I simulate 1,000 visitors for each group. Each observation is a Bernoulli draw equal to 1 if the visitor signs up and 0 otherwise.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ab_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">each =</span> n_per_group),</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">signup =</span> <span class="fu">c</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbinom</span>(n_per_group, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> p_a),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbinom</span>(n_per_group, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> p_b)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>summary_table <span class="ot">&lt;-</span> ab_data <span class="sc">%&gt;%</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">%&gt;%</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">visitors =</span> <span class="fu">n</span>(),</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">signups =</span> <span class="fu">sum</span>(signup),</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">conversion_rate =</span> <span class="fu">mean</span>(signup),</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>summary_table <span class="sc">%&gt;%</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">conversion_rate =</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> conversion_rate, <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">group =</span> <span class="st">"CTA"</span>,</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">visitors =</span> <span class="st">"Visitors"</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">signups =</span> <span class="st">"Sign-ups"</span>,</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">conversion_rate =</span> <span class="st">"Conversion Rate (%)"</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="bqjojqmibh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bqjojqmibh table {
+<div id="aqrjikabky" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#aqrjikabky table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bqjojqmibh thead, #bqjojqmibh tbody, #bqjojqmibh tfoot, #bqjojqmibh tr, #bqjojqmibh td, #bqjojqmibh th {
+#aqrjikabky thead, #aqrjikabky tbody, #aqrjikabky tfoot, #aqrjikabky tr, #aqrjikabky td, #aqrjikabky th {
   border-style: none;
 }
 
-#bqjojqmibh p {
+#aqrjikabky p {
   margin: 0;
   padding: 0;
 }
 
-#bqjojqmibh .gt_table {
+#aqrjikabky .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -307,12 +269,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#bqjojqmibh .gt_caption {
+#aqrjikabky .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bqjojqmibh .gt_title {
+#aqrjikabky .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -324,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#bqjojqmibh .gt_subtitle {
+#aqrjikabky .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -336,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#bqjojqmibh .gt_heading {
+#aqrjikabky .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -348,13 +310,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bqjojqmibh .gt_bottom_border {
+#aqrjikabky .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bqjojqmibh .gt_col_headings {
+#aqrjikabky .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -369,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bqjojqmibh .gt_col_heading {
+#aqrjikabky .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -389,7 +351,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#bqjojqmibh .gt_column_spanner_outer {
+#aqrjikabky .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -401,15 +363,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#bqjojqmibh .gt_column_spanner_outer:first-child {
+#aqrjikabky .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bqjojqmibh .gt_column_spanner_outer:last-child {
+#aqrjikabky .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bqjojqmibh .gt_column_spanner {
+#aqrjikabky .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -421,11 +383,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#bqjojqmibh .gt_spanner_row {
+#aqrjikabky .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bqjojqmibh .gt_group_heading {
+#aqrjikabky .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -451,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#bqjojqmibh .gt_empty_group_heading {
+#aqrjikabky .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -466,15 +428,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#bqjojqmibh .gt_from_md > :first-child {
+#aqrjikabky .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bqjojqmibh .gt_from_md > :last-child {
+#aqrjikabky .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bqjojqmibh .gt_row {
+#aqrjikabky .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -493,7 +455,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#bqjojqmibh .gt_stub {
+#aqrjikabky .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -506,7 +468,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bqjojqmibh .gt_stub_row_group {
+#aqrjikabky .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -520,15 +482,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#bqjojqmibh .gt_row_group_first td {
+#aqrjikabky .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bqjojqmibh .gt_row_group_first th {
+#aqrjikabky .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bqjojqmibh .gt_summary_row {
+#aqrjikabky .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -538,16 +500,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bqjojqmibh .gt_first_summary_row {
+#aqrjikabky .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bqjojqmibh .gt_first_summary_row.thick {
+#aqrjikabky .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bqjojqmibh .gt_last_summary_row {
+#aqrjikabky .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -557,7 +519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bqjojqmibh .gt_grand_summary_row {
+#aqrjikabky .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -567,7 +529,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bqjojqmibh .gt_first_grand_summary_row {
+#aqrjikabky .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -577,7 +539,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#bqjojqmibh .gt_last_grand_summary_row_top {
+#aqrjikabky .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -587,11 +549,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bqjojqmibh .gt_striped {
+#aqrjikabky .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bqjojqmibh .gt_table_body {
+#aqrjikabky .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -600,7 +562,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bqjojqmibh .gt_footnotes {
+#aqrjikabky .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -614,7 +576,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bqjojqmibh .gt_footnote {
+#aqrjikabky .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -623,7 +585,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bqjojqmibh .gt_sourcenotes {
+#aqrjikabky .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -637,7 +599,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bqjojqmibh .gt_sourcenote {
+#aqrjikabky .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -645,72 +607,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bqjojqmibh .gt_left {
+#aqrjikabky .gt_left {
   text-align: left;
 }
 
-#bqjojqmibh .gt_center {
+#aqrjikabky .gt_center {
   text-align: center;
 }
 
-#bqjojqmibh .gt_right {
+#aqrjikabky .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bqjojqmibh .gt_font_normal {
+#aqrjikabky .gt_font_normal {
   font-weight: normal;
 }
 
-#bqjojqmibh .gt_font_bold {
+#aqrjikabky .gt_font_bold {
   font-weight: bold;
 }
 
-#bqjojqmibh .gt_font_italic {
+#aqrjikabky .gt_font_italic {
   font-style: italic;
 }
 
-#bqjojqmibh .gt_super {
+#aqrjikabky .gt_super {
   font-size: 65%;
 }
 
-#bqjojqmibh .gt_footnote_marks {
+#aqrjikabky .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bqjojqmibh .gt_asterisk {
+#aqrjikabky .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bqjojqmibh .gt_indent_1 {
+#aqrjikabky .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bqjojqmibh .gt_indent_2 {
+#aqrjikabky .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bqjojqmibh .gt_indent_3 {
+#aqrjikabky .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bqjojqmibh .gt_indent_4 {
+#aqrjikabky .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bqjojqmibh .gt_indent_5 {
+#aqrjikabky .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bqjojqmibh .katex-display {
+#aqrjikabky .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bqjojqmibh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#aqrjikabky div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -718,24 +680,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="group" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">CTA</th>
-<th id="visitors" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Visitors</th>
-<th id="signups" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Sign-ups</th>
-<th id="conversion_rate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Conversion Rate (%)</th>
+<th id="Group" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Group</th>
+<th id="Sample-Size" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Sample Size</th>
+<th id="Observed-Sign-Up-Rate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Observed Sign-Up Rate</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="group">A</td>
-<td class="gt_row gt_right" headers="visitors">1000</td>
-<td class="gt_row gt_right" headers="signups">112</td>
-<td class="gt_row gt_right" headers="conversion_rate">11.2</td>
+<td class="gt_row gt_left" headers="Group">A</td>
+<td class="gt_row gt_right" headers="Sample Size">1000</td>
+<td class="gt_row gt_right" headers="Observed Sign-Up Rate">0.218</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="group">B</td>
-<td class="gt_row gt_right" headers="visitors">1000</td>
-<td class="gt_row gt_right" headers="signups">129</td>
-<td class="gt_row gt_right" headers="conversion_rate">12.9</td>
+<td class="gt_row gt_left" headers="Group">B</td>
+<td class="gt_row gt_right" headers="Sample Size">1000</td>
+<td class="gt_row gt_right" headers="Observed Sign-Up Rate">0.172</td>
 </tr>
 </tbody>
 </table>
@@ -743,55 +702,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The table above shows one simulated realization of the experiment. If I reran the simulation, the exact conversion rates would change slightly. That is an important lesson: the observed difference in the sample is not the same thing as the true difference in the population. Statistical inference exists because the sample is only one noisy draw from a broader process.</p>
+<p>The observed sign-up rates are close to the true probabilities, but they are not exactly the same. That difference reflects sampling variation, which is the central reason statistical inference is needed.</p>
 </section>
 <section id="the-law-of-large-numbers" class="level2">
 <h2 class="anchored" data-anchor-id="the-law-of-large-numbers">The Law of Large Numbers</h2>
-<p>One of the most important ideas in statistics is the law of large numbers. It says that as the sample size increases, the sample average tends to move closer to the true population average. In an A/B test, that means the observed conversion rate becomes more stable as more visitors enter the experiment.</p>
-<p>To illustrate this, I repeatedly simulate outcomes under CTA B and track the cumulative conversion rate as the sample grows.</p>
+<p>The Law of Large Numbers says that as the sample size grows, the sample mean converges to the population mean. In this A/B testing context, that idea gives us confidence that the estimator ( = {X}_A - {X}_B) will get closer to the true treatment effect () when the sample becomes large.</p>
+<p>To illustrate this, I compute the element-wise difference between the simulated CTA A and CTA B draws, and then calculate the cumulative average of those differences.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>diff_vec <span class="ot">&lt;-</span> A <span class="sc">-</span> B</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>cum_avg <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(diff_vec) <span class="sc">/</span> <span class="fu">seq_along</span>(diff_vec)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>lln_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">cumulative_average =</span> cum_avg</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/lln-code-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="hw1_questions_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Early in the process, the cumulative conversion rate jumps around a lot because each new visitor has a noticeable effect on the running average. As more observations accumulate, the line becomes more stable and drifts toward the true 12% rate. This is why small experiments can be misleading and why larger samples usually produce more trustworthy estimates.</p>
+<p>At the beginning of the sample, the cumulative average moves around quite a bit because each new observation has a large influence. As more observations are added, the running average settles down and moves closer to the true difference of 0.04.</p>
+<p>The main lesson is that larger samples reduce noise. Individual observations can be volatile, but the average of many observations becomes much more stable. This is why large samples are so valuable in A/B testing.</p>
 </section>
 <section id="bootstrap-standard-errors" class="level2">
 <h2 class="anchored" data-anchor-id="bootstrap-standard-errors">Bootstrap Standard Errors</h2>
-<p>A point estimate is only part of the story. We also need to know how much that estimate might vary from sample to sample. One way to measure that uncertainty is with a standard error.</p>
-<p>The bootstrap is a flexible and intuitive method for doing this. The idea is to repeatedly resample the observed data with replacement, compute the statistic of interest for each resample, and then examine the distribution of those bootstrap statistics. Here, the statistic of interest is the difference in conversion rates between CTA B and CTA A.</p>
+<p>A point estimate tells us where the treatment effect appears to be, but it does not tell us how precise that estimate is. To measure uncertainty, I use the bootstrap, which is a resampling method that estimates the variability of a statistic without relying entirely on a closed-form formula.</p>
+<p>The bootstrap works by resampling with replacement from the observed data, recomputing the statistic on each resample, and then examining the distribution of those resampled estimates. The standard deviation of the bootstrapped estimates serves as an estimate of the standard error.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n_boot <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>boot_thetas <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n_boot)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_boot) {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  A_star <span class="ot">&lt;-</span> <span class="fu">sample</span>(A, <span class="at">size =</span> n_A, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  B_star <span class="ot">&lt;-</span> <span class="fu">sample</span>(B, <span class="at">size =</span> n_B, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  boot_thetas[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(A_star) <span class="sc">-</span> <span class="fu">mean</span>(B_star)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>bootstrap_se <span class="ot">&lt;-</span> <span class="fu">sd</span>(boot_thetas)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>analytical_se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  p_hat_A <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p_hat_A) <span class="sc">/</span> n_A <span class="sc">+</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    p_hat_B <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p_hat_B) <span class="sc">/</span> n_B</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>ci_lower <span class="ot">&lt;-</span> theta_hat <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> bootstrap_se</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>ci_upper <span class="ot">&lt;-</span> theta_hat <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> bootstrap_se</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/bootstrap-code-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="outefloyvb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#outefloyvb table {
+<div id="kabolrxbbv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kabolrxbbv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#outefloyvb thead, #outefloyvb tbody, #outefloyvb tfoot, #outefloyvb tr, #outefloyvb td, #outefloyvb th {
+#kabolrxbbv thead, #kabolrxbbv tbody, #kabolrxbbv tfoot, #kabolrxbbv tr, #kabolrxbbv td, #kabolrxbbv th {
   border-style: none;
 }
 
-#outefloyvb p {
+#kabolrxbbv p {
   margin: 0;
   padding: 0;
 }
 
-#outefloyvb .gt_table {
+#kabolrxbbv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -817,12 +799,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#outefloyvb .gt_caption {
+#kabolrxbbv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#outefloyvb .gt_title {
+#kabolrxbbv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -834,7 +816,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#outefloyvb .gt_subtitle {
+#kabolrxbbv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -846,7 +828,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#outefloyvb .gt_heading {
+#kabolrxbbv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -858,13 +840,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#outefloyvb .gt_bottom_border {
+#kabolrxbbv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#outefloyvb .gt_col_headings {
+#kabolrxbbv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -879,7 +861,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#outefloyvb .gt_col_heading {
+#kabolrxbbv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -899,7 +881,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#outefloyvb .gt_column_spanner_outer {
+#kabolrxbbv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -911,15 +893,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#outefloyvb .gt_column_spanner_outer:first-child {
+#kabolrxbbv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#outefloyvb .gt_column_spanner_outer:last-child {
+#kabolrxbbv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#outefloyvb .gt_column_spanner {
+#kabolrxbbv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -931,11 +913,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#outefloyvb .gt_spanner_row {
+#kabolrxbbv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#outefloyvb .gt_group_heading {
+#kabolrxbbv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -961,7 +943,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#outefloyvb .gt_empty_group_heading {
+#kabolrxbbv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -976,15 +958,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#outefloyvb .gt_from_md > :first-child {
+#kabolrxbbv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#outefloyvb .gt_from_md > :last-child {
+#kabolrxbbv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#outefloyvb .gt_row {
+#kabolrxbbv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1003,7 +985,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#outefloyvb .gt_stub {
+#kabolrxbbv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1016,7 +998,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#outefloyvb .gt_stub_row_group {
+#kabolrxbbv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1030,15 +1012,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#outefloyvb .gt_row_group_first td {
+#kabolrxbbv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#outefloyvb .gt_row_group_first th {
+#kabolrxbbv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#outefloyvb .gt_summary_row {
+#kabolrxbbv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1048,16 +1030,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#outefloyvb .gt_first_summary_row {
+#kabolrxbbv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#outefloyvb .gt_first_summary_row.thick {
+#kabolrxbbv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#outefloyvb .gt_last_summary_row {
+#kabolrxbbv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1067,7 +1049,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#outefloyvb .gt_grand_summary_row {
+#kabolrxbbv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1077,7 +1059,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#outefloyvb .gt_first_grand_summary_row {
+#kabolrxbbv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1087,7 +1069,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#outefloyvb .gt_last_grand_summary_row_top {
+#kabolrxbbv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1097,11 +1079,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#outefloyvb .gt_striped {
+#kabolrxbbv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#outefloyvb .gt_table_body {
+#kabolrxbbv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1110,7 +1092,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#outefloyvb .gt_footnotes {
+#kabolrxbbv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1124,7 +1106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#outefloyvb .gt_footnote {
+#kabolrxbbv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1133,7 +1115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#outefloyvb .gt_sourcenotes {
+#kabolrxbbv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1147,7 +1129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#outefloyvb .gt_sourcenote {
+#kabolrxbbv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1155,72 +1137,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#outefloyvb .gt_left {
+#kabolrxbbv .gt_left {
   text-align: left;
 }
 
-#outefloyvb .gt_center {
+#kabolrxbbv .gt_center {
   text-align: center;
 }
 
-#outefloyvb .gt_right {
+#kabolrxbbv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#outefloyvb .gt_font_normal {
+#kabolrxbbv .gt_font_normal {
   font-weight: normal;
 }
 
-#outefloyvb .gt_font_bold {
+#kabolrxbbv .gt_font_bold {
   font-weight: bold;
 }
 
-#outefloyvb .gt_font_italic {
+#kabolrxbbv .gt_font_italic {
   font-style: italic;
 }
 
-#outefloyvb .gt_super {
+#kabolrxbbv .gt_super {
   font-size: 65%;
 }
 
-#outefloyvb .gt_footnote_marks {
+#kabolrxbbv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#outefloyvb .gt_asterisk {
+#kabolrxbbv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#outefloyvb .gt_indent_1 {
+#kabolrxbbv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#outefloyvb .gt_indent_2 {
+#kabolrxbbv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#outefloyvb .gt_indent_3 {
+#kabolrxbbv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#outefloyvb .gt_indent_4 {
+#kabolrxbbv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#outefloyvb .gt_indent_5 {
+#kabolrxbbv .gt_indent_5 {
   text-indent: 25px;
 }
 
-#outefloyvb .katex-display {
+#kabolrxbbv .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#outefloyvb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kabolrxbbv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1228,18 +1210,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="observed_difference" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Observed Difference</th>
-<th id="bootstrap_se" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Bootstrap SE</th>
-<th id="ci_lower" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2.5% Quantile</th>
-<th id="ci_upper" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">97.5% Quantile</th>
+<th id="Quantity" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Quantity</th>
+<th id="Value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Value</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_right" headers="observed_difference">0.017</td>
-<td class="gt_row gt_right" headers="bootstrap_se">0.0145</td>
-<td class="gt_row gt_right" headers="ci_lower">-0.011</td>
-<td class="gt_row gt_right" headers="ci_upper">0.046</td>
+<td class="gt_row gt_left" headers="Quantity">Observed Estimate</td>
+<td class="gt_row gt_right" headers="Value">0.0460</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Quantity">Bootstrap Standard Error</td>
+<td class="gt_row gt_right" headers="Value">0.0174</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Quantity">Analytical Standard Error</td>
+<td class="gt_row gt_right" headers="Value">0.0177</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Quantity">95% CI Lower Bound</td>
+<td class="gt_row gt_right" headers="Value">0.0119</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Quantity">95% CI Upper Bound</td>
+<td class="gt_row gt_right" headers="Value">0.0801</td>
 </tr>
 </tbody>
 </table>
@@ -1247,68 +1241,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The bootstrap distribution is centered near the observed sample difference, while its spread reflects sampling uncertainty. The bootstrap standard error gives a useful summary of how much the estimated difference could fluctuate across repeated samples. The interval is also helpful: if it sits mostly above zero, that supports the idea that CTA B is outperforming CTA A in a meaningful way.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw1_questions_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The bootstrap standard error is usually very close to the analytical standard error in this setting. That is reassuring, because it shows that the resampling approach and the Bernoulli formula give similar answers.</p>
+<p>Using the bootstrap standard error, I construct a 95% confidence interval for the treatment effect. In frequentist terms, this means that if I repeated the full sampling and interval-construction procedure many times, about 95% of the resulting intervals would contain the true value of ().</p>
 </section>
 <section id="the-central-limit-theorem" class="level2">
 <h2 class="anchored" data-anchor-id="the-central-limit-theorem">The Central Limit Theorem</h2>
-<p>The central limit theorem explains why so many inferential procedures work well in practice. Informally, it says that when the sample size is sufficiently large, the sampling distribution of a sample mean tends to be approximately normal, even when the raw data themselves are not normally distributed.</p>
-<p>That matters here because conversion data are binary, not continuous. Each visitor either signs up or does not. Even so, the <em>average</em> sign-up rate across many visitors can still have an approximately normal sampling distribution.</p>
+<p>The Central Limit Theorem states that, regardless of the shape of the underlying population distribution, the sampling distribution of the sample mean becomes approximately Normal as the sample size grows. Since the difference in sample means is built from sample means, the same logic applies to ().</p>
+<p>To illustrate this, I repeatedly simulate the estimator for four different sample sizes: (n {25, 50, 100, 500}). For each value of (n), I generate 1,000 estimates of () and examine their distribution.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/clt-code-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="hw1_questions_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The histogram is centered near the true conversion rate and has an approximately bell-shaped form. This does not mean that individual sign-up outcomes are normal. It means that the <em>sample mean</em> behaves approximately normally when enough observations are collected. This result is one of the main reasons confidence intervals and hypothesis tests are so useful in large-sample A/B testing.</p>
+<p>The histograms show that when the sample size is small, the distribution of () can look rough and somewhat irregular. As the sample size increases, the distribution becomes smoother, more symmetric, and more bell-shaped.</p>
+<p>This is exactly what the Central Limit Theorem predicts. Even though the underlying observations are Bernoulli rather than Normal, the estimator itself becomes approximately Normal when enough data are collected. That approximation is what makes large-sample inference possible.</p>
 </section>
 <section id="hypothesis-testing" class="level2">
 <h2 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis Testing</h2>
-<p>Once we have an estimate and a way to quantify uncertainty, we can formally test whether the difference between the two CTAs is statistically meaningful.</p>
-<p>The null hypothesis says that the two versions perform equally well:</p>
-<p>[ H_0: p_A = p_B ]</p>
-<p>The alternative hypothesis says that the conversion rates differ:</p>
-<p>[ H_1: p_A p_B ]</p>
-<p>A standard test for two proportions compares the observed difference to what would be expected under the null. If the observed difference would be very unlikely when the null is true, the p-value becomes small and we reject the null hypothesis.</p>
+<p>The Central Limit Theorem gives us a way to perform a formal hypothesis test. I begin with the null hypothesis</p>
+<p>[ H_0: = 0, ]</p>
+<p>which says that the two CTAs have the same sign-up rate. The alternative hypothesis is</p>
+<p>[ H_1: , ]</p>
+<p>which says that the sign-up rates differ.</p>
+<p>To test the null, I standardize the estimated treatment effect:</p>
+<p>[ z = . ]</p>
+<p>The logic is straightforward. First, the Central Limit Theorem tells us that () is approximately Normally distributed in large samples. Under the null hypothesis, the center of that distribution is 0. When I divide by the standard error, I obtain a statistic that is approximately distributed as a standard Normal random variable under the null. Once I know that reference distribution, I can compute a p-value.</p>
+<p>Although this kind of procedure is sometimes loosely called a t-test, it is more accurate here to think of it as a large-sample z-test. The classical t-test arises from Normally distributed data with an estimated variance, which produces an exact t-distribution. In this setting the data are Bernoulli, not Normal, so the Normal approximation comes from the Central Limit Theorem instead. For large samples, however, the practical difference between the t-distribution and the standard Normal distribution is very small.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>test_result <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="fu">sum</span>(signup_a), <span class="fu">sum</span>(signup_b)),</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">c</span>(<span class="fu">length</span>(signup_a), <span class="fu">length</span>(signup_b)),</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">correct =</span> <span class="cn">FALSE</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">estimate_A =</span> <span class="fu">unname</span>(test_result<span class="sc">$</span>estimate[<span class="dv">1</span>]),</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">estimate_B =</span> <span class="fu">unname</span>(test_result<span class="sc">$</span>estimate[<span class="dv">2</span>]),</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">p_value =</span> test_result<span class="sc">$</span>p.value</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), round, <span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate_A =</span> <span class="st">"Estimated Rate: A"</span>,</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate_B =</span> <span class="st">"Estimated Rate: B"</span>,</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_value =</span> <span class="st">"P-value"</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="pfglnosemp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pfglnosemp table {
+<div id="sqtzotpkrq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sqtzotpkrq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pfglnosemp thead, #pfglnosemp tbody, #pfglnosemp tfoot, #pfglnosemp tr, #pfglnosemp td, #pfglnosemp th {
+#sqtzotpkrq thead, #sqtzotpkrq tbody, #sqtzotpkrq tfoot, #sqtzotpkrq tr, #sqtzotpkrq td, #sqtzotpkrq th {
   border-style: none;
 }
 
-#pfglnosemp p {
+#sqtzotpkrq p {
   margin: 0;
   padding: 0;
 }
 
-#pfglnosemp .gt_table {
+#sqtzotpkrq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1334,12 +1324,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#pfglnosemp .gt_caption {
+#sqtzotpkrq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pfglnosemp .gt_title {
+#sqtzotpkrq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1351,7 +1341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#pfglnosemp .gt_subtitle {
+#sqtzotpkrq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1363,7 +1353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#pfglnosemp .gt_heading {
+#sqtzotpkrq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1375,13 +1365,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#pfglnosemp .gt_bottom_border {
+#sqtzotpkrq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pfglnosemp .gt_col_headings {
+#sqtzotpkrq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1396,7 +1386,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#pfglnosemp .gt_col_heading {
+#sqtzotpkrq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1416,7 +1406,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#pfglnosemp .gt_column_spanner_outer {
+#sqtzotpkrq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1428,15 +1418,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#pfglnosemp .gt_column_spanner_outer:first-child {
+#sqtzotpkrq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pfglnosemp .gt_column_spanner_outer:last-child {
+#sqtzotpkrq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pfglnosemp .gt_column_spanner {
+#sqtzotpkrq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1448,11 +1438,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#pfglnosemp .gt_spanner_row {
+#sqtzotpkrq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pfglnosemp .gt_group_heading {
+#sqtzotpkrq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1478,7 +1468,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#pfglnosemp .gt_empty_group_heading {
+#sqtzotpkrq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1493,15 +1483,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#pfglnosemp .gt_from_md > :first-child {
+#sqtzotpkrq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pfglnosemp .gt_from_md > :last-child {
+#sqtzotpkrq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pfglnosemp .gt_row {
+#sqtzotpkrq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1520,7 +1510,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#pfglnosemp .gt_stub {
+#sqtzotpkrq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1533,7 +1523,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#pfglnosemp .gt_stub_row_group {
+#sqtzotpkrq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1547,15 +1537,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#pfglnosemp .gt_row_group_first td {
+#sqtzotpkrq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pfglnosemp .gt_row_group_first th {
+#sqtzotpkrq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pfglnosemp .gt_summary_row {
+#sqtzotpkrq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1565,16 +1555,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#pfglnosemp .gt_first_summary_row {
+#sqtzotpkrq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pfglnosemp .gt_first_summary_row.thick {
+#sqtzotpkrq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pfglnosemp .gt_last_summary_row {
+#sqtzotpkrq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1584,7 +1574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#pfglnosemp .gt_grand_summary_row {
+#sqtzotpkrq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1594,7 +1584,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#pfglnosemp .gt_first_grand_summary_row {
+#sqtzotpkrq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1604,7 +1594,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#pfglnosemp .gt_last_grand_summary_row_top {
+#sqtzotpkrq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1614,11 +1604,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#pfglnosemp .gt_striped {
+#sqtzotpkrq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pfglnosemp .gt_table_body {
+#sqtzotpkrq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1627,7 +1617,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#pfglnosemp .gt_footnotes {
+#sqtzotpkrq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1641,7 +1631,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#pfglnosemp .gt_footnote {
+#sqtzotpkrq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1650,7 +1640,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#pfglnosemp .gt_sourcenotes {
+#sqtzotpkrq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1664,7 +1654,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#pfglnosemp .gt_sourcenote {
+#sqtzotpkrq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1672,72 +1662,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#pfglnosemp .gt_left {
+#sqtzotpkrq .gt_left {
   text-align: left;
 }
 
-#pfglnosemp .gt_center {
+#sqtzotpkrq .gt_center {
   text-align: center;
 }
 
-#pfglnosemp .gt_right {
+#sqtzotpkrq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pfglnosemp .gt_font_normal {
+#sqtzotpkrq .gt_font_normal {
   font-weight: normal;
 }
 
-#pfglnosemp .gt_font_bold {
+#sqtzotpkrq .gt_font_bold {
   font-weight: bold;
 }
 
-#pfglnosemp .gt_font_italic {
+#sqtzotpkrq .gt_font_italic {
   font-style: italic;
 }
 
-#pfglnosemp .gt_super {
+#sqtzotpkrq .gt_super {
   font-size: 65%;
 }
 
-#pfglnosemp .gt_footnote_marks {
+#sqtzotpkrq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pfglnosemp .gt_asterisk {
+#sqtzotpkrq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pfglnosemp .gt_indent_1 {
+#sqtzotpkrq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pfglnosemp .gt_indent_2 {
+#sqtzotpkrq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pfglnosemp .gt_indent_3 {
+#sqtzotpkrq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pfglnosemp .gt_indent_4 {
+#sqtzotpkrq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pfglnosemp .gt_indent_5 {
+#sqtzotpkrq .gt_indent_5 {
   text-indent: 25px;
 }
 
-#pfglnosemp .katex-display {
+#sqtzotpkrq .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#pfglnosemp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#sqtzotpkrq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1745,16 +1735,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="estimate_A" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Estimated Rate: A</th>
-<th id="estimate_B" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Estimated Rate: B</th>
-<th id="p_value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">P-value</th>
+<th id="Statistic" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Statistic</th>
+<th id="Value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Value</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_right" headers="estimate_A">0.112</td>
-<td class="gt_row gt_right" headers="estimate_B">0.129</td>
-<td class="gt_row gt_right" headers="p_value">0.2429</td>
+<td class="gt_row gt_left" headers="Statistic">Estimate</td>
+<td class="gt_row gt_right" headers="Value">0.0460</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Statistic">Standard Error</td>
+<td class="gt_row gt_right" headers="Value">0.0177</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Statistic">z Statistic</td>
+<td class="gt_row gt_right" headers="Value">2.6005</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Statistic">p-Value</td>
+<td class="gt_row gt_right" headers="Value">0.0093</td>
 </tr>
 </tbody>
 </table>
@@ -1762,31 +1762,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>If the p-value is small, the sample provides evidence against the null hypothesis of equal performance. In that case, it becomes reasonable to conclude that the CTA wording matters. At the same time, statistical significance should not be confused with practical significance. A result can be statistically significant but still too small to matter much in business terms. Good analysis considers both.</p>
+<p>The p-value measures how surprising the observed estimate would be if the null hypothesis were true. A small p-value provides evidence against the null and suggests that the observed difference is unlikely to be due to sampling variation alone.</p>
 </section>
 <section id="the-t-test-as-a-regression" class="level2">
 <h2 class="anchored" data-anchor-id="the-t-test-as-a-regression">The T-Test as a Regression</h2>
-<p>A useful insight in applied statistics is that a difference-in-means comparison can also be written as a regression model. Even though the outcome here is binary, a simple linear regression still gives an interpretable representation of the A/B test.</p>
-<p>I create an indicator variable for whether a visitor saw CTA B and regress the sign-up outcome on that indicator.</p>
+<p>The same two-group comparison can also be written as a simple linear regression. To do this, I stack the observations from the two groups into a single dataset. Let (Y_i) equal 1 if visitor (i) signs up and 0 otherwise, and let (D_i) equal 1 if the visitor saw CTA A and 0 if the visitor saw CTA B. Then I estimate the regression.</p>
+<p>[ Y_i = _0 + _1 D_i + _i. ]</p>
+<p>In this specification, (_0) is the expected sign-up rate for group B, because it is the mean outcome when (D_i = 0). The quantity (_0 + _1) is the expected sign-up rate for group A, because it is the mean outcome when (D_i = 1). Therefore, (_1 = _A - _B = ), so the coefficient on the treatment indicator is exactly the treatment effect of interest.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="twzdvmgdhw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#twzdvmgdhw table {
+<div id="sifnyrtzwf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sifnyrtzwf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#twzdvmgdhw thead, #twzdvmgdhw tbody, #twzdvmgdhw tfoot, #twzdvmgdhw tr, #twzdvmgdhw td, #twzdvmgdhw th {
+#sifnyrtzwf thead, #sifnyrtzwf tbody, #sifnyrtzwf tfoot, #sifnyrtzwf tr, #sifnyrtzwf td, #sifnyrtzwf th {
   border-style: none;
 }
 
-#twzdvmgdhw p {
+#sifnyrtzwf p {
   margin: 0;
   padding: 0;
 }
 
-#twzdvmgdhw .gt_table {
+#sifnyrtzwf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1812,12 +1813,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#twzdvmgdhw .gt_caption {
+#sifnyrtzwf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#twzdvmgdhw .gt_title {
+#sifnyrtzwf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1829,7 +1830,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#twzdvmgdhw .gt_subtitle {
+#sifnyrtzwf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1841,7 +1842,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#twzdvmgdhw .gt_heading {
+#sifnyrtzwf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1853,13 +1854,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#twzdvmgdhw .gt_bottom_border {
+#sifnyrtzwf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#twzdvmgdhw .gt_col_headings {
+#sifnyrtzwf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1874,7 +1875,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#twzdvmgdhw .gt_col_heading {
+#sifnyrtzwf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1894,7 +1895,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#twzdvmgdhw .gt_column_spanner_outer {
+#sifnyrtzwf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1906,15 +1907,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#twzdvmgdhw .gt_column_spanner_outer:first-child {
+#sifnyrtzwf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#twzdvmgdhw .gt_column_spanner_outer:last-child {
+#sifnyrtzwf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#twzdvmgdhw .gt_column_spanner {
+#sifnyrtzwf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1926,11 +1927,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#twzdvmgdhw .gt_spanner_row {
+#sifnyrtzwf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#twzdvmgdhw .gt_group_heading {
+#sifnyrtzwf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1956,7 +1957,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#twzdvmgdhw .gt_empty_group_heading {
+#sifnyrtzwf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1971,15 +1972,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#twzdvmgdhw .gt_from_md > :first-child {
+#sifnyrtzwf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#twzdvmgdhw .gt_from_md > :last-child {
+#sifnyrtzwf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#twzdvmgdhw .gt_row {
+#sifnyrtzwf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1998,7 +1999,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#twzdvmgdhw .gt_stub {
+#sifnyrtzwf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2011,7 +2012,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#twzdvmgdhw .gt_stub_row_group {
+#sifnyrtzwf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2025,15 +2026,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#twzdvmgdhw .gt_row_group_first td {
+#sifnyrtzwf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#twzdvmgdhw .gt_row_group_first th {
+#sifnyrtzwf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#twzdvmgdhw .gt_summary_row {
+#sifnyrtzwf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2043,16 +2044,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#twzdvmgdhw .gt_first_summary_row {
+#sifnyrtzwf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#twzdvmgdhw .gt_first_summary_row.thick {
+#sifnyrtzwf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#twzdvmgdhw .gt_last_summary_row {
+#sifnyrtzwf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2062,7 +2063,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#twzdvmgdhw .gt_grand_summary_row {
+#sifnyrtzwf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2072,7 +2073,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#twzdvmgdhw .gt_first_grand_summary_row {
+#sifnyrtzwf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2082,7 +2083,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#twzdvmgdhw .gt_last_grand_summary_row_top {
+#sifnyrtzwf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2092,11 +2093,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#twzdvmgdhw .gt_striped {
+#sifnyrtzwf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#twzdvmgdhw .gt_table_body {
+#sifnyrtzwf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2105,7 +2106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#twzdvmgdhw .gt_footnotes {
+#sifnyrtzwf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2119,7 +2120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#twzdvmgdhw .gt_footnote {
+#sifnyrtzwf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2128,7 +2129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#twzdvmgdhw .gt_sourcenotes {
+#sifnyrtzwf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2142,7 +2143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#twzdvmgdhw .gt_sourcenote {
+#sifnyrtzwf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2150,72 +2151,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#twzdvmgdhw .gt_left {
+#sifnyrtzwf .gt_left {
   text-align: left;
 }
 
-#twzdvmgdhw .gt_center {
+#sifnyrtzwf .gt_center {
   text-align: center;
 }
 
-#twzdvmgdhw .gt_right {
+#sifnyrtzwf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#twzdvmgdhw .gt_font_normal {
+#sifnyrtzwf .gt_font_normal {
   font-weight: normal;
 }
 
-#twzdvmgdhw .gt_font_bold {
+#sifnyrtzwf .gt_font_bold {
   font-weight: bold;
 }
 
-#twzdvmgdhw .gt_font_italic {
+#sifnyrtzwf .gt_font_italic {
   font-style: italic;
 }
 
-#twzdvmgdhw .gt_super {
+#sifnyrtzwf .gt_super {
   font-size: 65%;
 }
 
-#twzdvmgdhw .gt_footnote_marks {
+#sifnyrtzwf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#twzdvmgdhw .gt_asterisk {
+#sifnyrtzwf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#twzdvmgdhw .gt_indent_1 {
+#sifnyrtzwf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#twzdvmgdhw .gt_indent_2 {
+#sifnyrtzwf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#twzdvmgdhw .gt_indent_3 {
+#sifnyrtzwf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#twzdvmgdhw .gt_indent_4 {
+#sifnyrtzwf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#twzdvmgdhw .gt_indent_5 {
+#sifnyrtzwf .gt_indent_5 {
   text-indent: 25px;
 }
 
-#twzdvmgdhw .katex-display {
+#sifnyrtzwf .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#twzdvmgdhw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#sifnyrtzwf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2223,24 +2224,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Term</th>
-<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Estimate</th>
-<th id="std_error" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Std. Error</th>
-<th id="p_value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">P-value</th>
+<th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">term</th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate</th>
+<th id="std.error" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">std.error</th>
+<th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">statistic</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p.value</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="term">(Intercept)</td>
-<td class="gt_row gt_right" headers="estimate">0.112</td>
-<td class="gt_row gt_right" headers="std_error">0.0103</td>
-<td class="gt_row gt_right" headers="p_value">0.0000</td>
+<td class="gt_row gt_right" headers="estimate">0.1720</td>
+<td class="gt_row gt_right" headers="std.error">0.0125</td>
+<td class="gt_row gt_right" headers="statistic">13.7445</td>
+<td class="gt_row gt_right" headers="p.value">0.0000</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="term">group_b</td>
-<td class="gt_row gt_right" headers="estimate">0.017</td>
-<td class="gt_row gt_right" headers="std_error">0.0146</td>
-<td class="gt_row gt_right" headers="p_value">0.2432</td>
+<td class="gt_row gt_left" headers="term">D</td>
+<td class="gt_row gt_right" headers="estimate">0.0460</td>
+<td class="gt_row gt_right" headers="std.error">0.0177</td>
+<td class="gt_row gt_right" headers="statistic">2.5992</td>
+<td class="gt_row gt_right" headers="p.value">0.0094</td>
 </tr>
 </tbody>
 </table>
@@ -2248,59 +2252,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>In this regression, the intercept is the mean conversion rate for CTA A. The coefficient on the CTA B indicator is the difference in average conversion rates between the two groups. In other words, the regression coefficient captures the same treatment effect that the A/B test is designed to estimate.</p>
-<p>This perspective is valuable because it generalizes naturally. In more realistic settings, analysts may want to adjust for device type, traffic source, geography, or prior user characteristics. Regression provides a clean framework for extending the same logic to more complex experiments.</p>
+<p>The coefficient estimate on (D) is numerically identical to the difference in sample means computed earlier. The standard error and test statistic are also very similar, though they may differ slightly depending on the exact variance formula being used.</p>
+<p>This equivalence matters because the regression framework generalizes naturally. In more complicated settings, I can add covariates, interactions, or additional treatment groups while still relying on the same basic logic.</p>
 </section>
 <section id="the-problem-with-peeking" class="level2">
 <h2 class="anchored" data-anchor-id="the-problem-with-peeking">The Problem with Peeking</h2>
-<p>One of the most common practical mistakes in experimentation is peeking at the data too early and too often. Imagine checking the p-value every time another small batch of visitors arrives and ending the experiment as soon as significance appears. That strategy may feel efficient, but it can dramatically increase the false positive rate.</p>
-<p>To demonstrate this, I simulate many experiments in which CTA A and CTA B actually have the same true conversion rate. Under that setup, any significant result is a false positive. I then repeatedly “peek” during the experiment and stop whenever significance appears.</p>
+<p>Frequentist hypothesis testing assumes that the testing procedure is specified in advance. Problems arise when a researcher repeatedly checks the data during the experiment and stops as soon as a statistically significant result appears.</p>
+<p>Suppose the true null hypothesis is correct: both CTAs have the same sign-up probability, so (_A = _B = 0.20). If I run only one test at the end of the study at the (= 0.05) level, the false positive rate should be about 5%. But if I test repeatedly after every 100 observations per group, then each additional look at the data is another opportunity to obtain a significant result purely by chance.</p>
+<p>To show this, I simulate 10,000 experiments under the null hypothesis. In each experiment, I generate 1,000 observations for group A and 1,000 for group B, then perform a hypothesis test after every 100 observations per group. I record whether any one of the ten interim tests produces a p-value below 0.05.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>peek_once <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n_total =</span> <span class="dv">1000</span>, <span class="at">step =</span> <span class="dv">50</span>, <span class="at">p =</span> <span class="fl">0.10</span>) {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n_total, <span class="dv">1</span>, p)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n_total, <span class="dv">1</span>, p)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (n <span class="cf">in</span> <span class="fu">seq</span>(step, n_total, <span class="at">by =</span> step)) {</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    pval <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="fu">c</span>(<span class="fu">sum</span>(a[<span class="dv">1</span><span class="sc">:</span>n]), <span class="fu">sum</span>(b[<span class="dv">1</span><span class="sc">:</span>n])),</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">n =</span> <span class="fu">c</span>(n, n),</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">correct =</span> <span class="cn">FALSE</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">$</span>p.value</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (pval <span class="sc">&lt;</span> <span class="fl">0.05</span>) {</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="dv">1</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="dv">0</span>)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>peek_results <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>, <span class="cf">function</span>(i) <span class="fu">peek_once</span>())</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">false_positive_rate_with_peeking =</span> <span class="fu">mean</span>(peek_results)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), round, <span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(<span class="at">false_positive_rate_with_peeking =</span> <span class="st">"False Positive Rate"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>peek_once <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">pi_null =</span> <span class="fl">0.20</span>, <span class="at">total_n =</span> <span class="dv">1000</span>, <span class="at">step_n =</span> <span class="dv">100</span>) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  A_null <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(total_n, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> pi_null)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  B_null <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(total_n, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> pi_null)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  peek_points <span class="ot">&lt;-</span> <span class="fu">seq</span>(step_n, total_n, <span class="at">by =</span> step_n)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (n <span class="cf">in</span> peek_points) {</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    pA_n <span class="ot">&lt;-</span> <span class="fu">mean</span>(A_null[<span class="dv">1</span><span class="sc">:</span>n])</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    pB_n <span class="ot">&lt;-</span> <span class="fu">mean</span>(B_null[<span class="dv">1</span><span class="sc">:</span>n])</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    theta_n <span class="ot">&lt;-</span> pA_n <span class="sc">-</span> pB_n</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    se_n <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>      pA_n <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> pA_n) <span class="sc">/</span> n <span class="sc">+</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        pB_n <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> pB_n) <span class="sc">/</span> n</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    z_n <span class="ot">&lt;-</span> theta_n <span class="sc">/</span> se_n</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    p_n <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fu">abs</span>(z_n)))</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (p_n <span class="sc">&lt;</span> <span class="fl">0.05</span>) {</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="cn">FALSE</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">202</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>n_simulations <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>peek_results <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_simulations, <span class="fu">peek_once</span>())</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>false_positive_rate <span class="ot">&lt;-</span> <span class="fu">mean</span>(peek_results)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
 <div class="cell-output-display">
-<div id="oakzffjyhy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#oakzffjyhy table {
+<div id="fviiavonqa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fviiavonqa table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#oakzffjyhy thead, #oakzffjyhy tbody, #oakzffjyhy tfoot, #oakzffjyhy tr, #oakzffjyhy td, #oakzffjyhy th {
+#fviiavonqa thead, #fviiavonqa tbody, #fviiavonqa tfoot, #fviiavonqa tr, #fviiavonqa td, #fviiavonqa th {
   border-style: none;
 }
 
-#oakzffjyhy p {
+#fviiavonqa p {
   margin: 0;
   padding: 0;
 }
 
-#oakzffjyhy .gt_table {
+#fviiavonqa .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2326,12 +2339,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#oakzffjyhy .gt_caption {
+#fviiavonqa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#oakzffjyhy .gt_title {
+#fviiavonqa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2343,7 +2356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#oakzffjyhy .gt_subtitle {
+#fviiavonqa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2355,7 +2368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#oakzffjyhy .gt_heading {
+#fviiavonqa .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2367,13 +2380,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#oakzffjyhy .gt_bottom_border {
+#fviiavonqa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#oakzffjyhy .gt_col_headings {
+#fviiavonqa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2388,7 +2401,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#oakzffjyhy .gt_col_heading {
+#fviiavonqa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2408,7 +2421,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#oakzffjyhy .gt_column_spanner_outer {
+#fviiavonqa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2420,15 +2433,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#oakzffjyhy .gt_column_spanner_outer:first-child {
+#fviiavonqa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#oakzffjyhy .gt_column_spanner_outer:last-child {
+#fviiavonqa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#oakzffjyhy .gt_column_spanner {
+#fviiavonqa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2440,11 +2453,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#oakzffjyhy .gt_spanner_row {
+#fviiavonqa .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#oakzffjyhy .gt_group_heading {
+#fviiavonqa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2470,7 +2483,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#oakzffjyhy .gt_empty_group_heading {
+#fviiavonqa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2485,15 +2498,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#oakzffjyhy .gt_from_md > :first-child {
+#fviiavonqa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#oakzffjyhy .gt_from_md > :last-child {
+#fviiavonqa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#oakzffjyhy .gt_row {
+#fviiavonqa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2512,7 +2525,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#oakzffjyhy .gt_stub {
+#fviiavonqa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2525,7 +2538,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#oakzffjyhy .gt_stub_row_group {
+#fviiavonqa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2539,15 +2552,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#oakzffjyhy .gt_row_group_first td {
+#fviiavonqa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#oakzffjyhy .gt_row_group_first th {
+#fviiavonqa .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#oakzffjyhy .gt_summary_row {
+#fviiavonqa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2557,16 +2570,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#oakzffjyhy .gt_first_summary_row {
+#fviiavonqa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#oakzffjyhy .gt_first_summary_row.thick {
+#fviiavonqa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#oakzffjyhy .gt_last_summary_row {
+#fviiavonqa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2576,7 +2589,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#oakzffjyhy .gt_grand_summary_row {
+#fviiavonqa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2586,7 +2599,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#oakzffjyhy .gt_first_grand_summary_row {
+#fviiavonqa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2596,7 +2609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#oakzffjyhy .gt_last_grand_summary_row_top {
+#fviiavonqa .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2606,11 +2619,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#oakzffjyhy .gt_striped {
+#fviiavonqa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#oakzffjyhy .gt_table_body {
+#fviiavonqa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2619,7 +2632,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#oakzffjyhy .gt_footnotes {
+#fviiavonqa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2633,7 +2646,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#oakzffjyhy .gt_footnote {
+#fviiavonqa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2642,7 +2655,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#oakzffjyhy .gt_sourcenotes {
+#fviiavonqa .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2656,7 +2669,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#oakzffjyhy .gt_sourcenote {
+#fviiavonqa .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2664,72 +2677,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#oakzffjyhy .gt_left {
+#fviiavonqa .gt_left {
   text-align: left;
 }
 
-#oakzffjyhy .gt_center {
+#fviiavonqa .gt_center {
   text-align: center;
 }
 
-#oakzffjyhy .gt_right {
+#fviiavonqa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#oakzffjyhy .gt_font_normal {
+#fviiavonqa .gt_font_normal {
   font-weight: normal;
 }
 
-#oakzffjyhy .gt_font_bold {
+#fviiavonqa .gt_font_bold {
   font-weight: bold;
 }
 
-#oakzffjyhy .gt_font_italic {
+#fviiavonqa .gt_font_italic {
   font-style: italic;
 }
 
-#oakzffjyhy .gt_super {
+#fviiavonqa .gt_super {
   font-size: 65%;
 }
 
-#oakzffjyhy .gt_footnote_marks {
+#fviiavonqa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#oakzffjyhy .gt_asterisk {
+#fviiavonqa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#oakzffjyhy .gt_indent_1 {
+#fviiavonqa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#oakzffjyhy .gt_indent_2 {
+#fviiavonqa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#oakzffjyhy .gt_indent_3 {
+#fviiavonqa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#oakzffjyhy .gt_indent_4 {
+#fviiavonqa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#oakzffjyhy .gt_indent_5 {
+#fviiavonqa .gt_indent_5 {
   text-indent: 25px;
 }
 
-#oakzffjyhy .katex-display {
+#fviiavonqa .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#oakzffjyhy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#fviiavonqa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2737,12 +2750,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="false_positive_rate_with_peeking" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">False Positive Rate</th>
+<th id="Quantity" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Quantity</th>
+<th id="Value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Value</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_right" headers="false_positive_rate_with_peeking">0.249</td>
+<td class="gt_row gt_left" headers="Quantity">Nominal Type I Error</td>
+<td class="gt_row gt_right" headers="Value">0.0500</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Quantity">Empirical False Positive Rate with Peeking</td>
+<td class="gt_row gt_right" headers="Value">0.2016</td>
 </tr>
 </tbody>
 </table>
@@ -2750,13 +2769,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>If the false positive rate rises noticeably above 5%, then the nominal significance cutoff is no longer providing honest error control. In plain language, repeated unscheduled checking makes it too easy to convince ourselves that a difference exists when it does not. This is why experimenters usually commit to a target sample size or a formal stopping rule before examining the final result.</p>
+<p>The empirical false positive rate is substantially larger than 0.05. That inflation happens because repeated testing increases the chance of eventually crossing the significance threshold even when no real effect exists.</p>
+<p>In practice, this means that peeking can make an A/B test appear more convincing than it really is. If interim analyses are planned, researchers need methods that explicitly account for them. Otherwise, the nominal significance level no longer reflects the true probability of a false positive.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>This A/B testing example shows how a seemingly simple website decision connects to several foundational ideas in classical frequentist statistics. Observed conversion rates are always subject to random variation, so the analyst must go beyond raw sample averages and think carefully about uncertainty.</p>
-<p>Simulation makes these ideas easier to see. The law of large numbers explains why estimates stabilize in larger samples. The bootstrap helps quantify uncertainty around an observed difference. The central limit theorem shows why sample averages often have approximately normal behavior. Hypothesis testing formalizes evidence against the null, regression reframes the same comparison in a flexible modeling framework, and the peeking example highlights how misuse of inferential tools can create misleading conclusions.</p>
-<p>The main lesson is that A/B testing is not simply about picking whichever version has the larger observed conversion rate. It is about making principled decisions under uncertainty, with both statistical reasoning and practical interpretation working together.</p>
+<p>This simulated A/B test illustrates several key ideas from classical frequentist statistics. The Law of Large Numbers explains why the estimator becomes more stable as the sample grows, the bootstrap provides a practical way to estimate uncertainty, and the Central Limit Theorem justifies the Normal approximation used in hypothesis testing.</p>
+<p>The analysis also shows that the same two-sample comparison can be expressed as a regression, which connects experimental analysis to a much broader empirical toolkit. Finally, the peeking simulation highlights an important practical warning: good inference depends not only on the data, but also on following a valid testing procedure.</p>
+<p>Taken together, these results show why frequentist tools are so useful in A/B testing and why careful experimental design matters just as much as computation. In a real experiment, the sample size and stopping rule should be chosen before the test begins so that the final inference remains valid.</p>
 
 
 </section>

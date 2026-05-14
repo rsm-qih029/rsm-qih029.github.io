@@ -1,0 +1,584 @@
+---
+title: "Poisson Regression and Maximum Likelihood Estimation"
+subtitle: "A Case Study of Blueprinty's Software and Patent Awards"
+author: "qiang hu"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    theme: cosmo
+execute:
+  warning: false
+  message: false
+---
+
+<style>
+.eq {
+  background: #f8fafc;
+  border-left: 4px solid #2563eb;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  overflow-x: auto;
+}
+.chart-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-top: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+.chart-note {
+  color: #555;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+}
+</style>
+
+## Introduction
+
+Blueprinty is a small software company that builds tools to help engineering firms prepare blueprint materials for patent applications. Its marketing team would like to make a simple but important claim: firms that use Blueprinty's software are more successful at getting patents approved.
+
+That claim is not as easy to evaluate as it first sounds. The ideal research design would compare the same firms before and after they adopted Blueprinty, or randomly assign some firms to use the software and others not to use it. Neither design is available here. Instead, Blueprinty has collected an observational dataset of 1,500 mature engineering firms. For each firm, the data include the number of patents awarded during the last five years, the firm's region, its age since incorporation, and whether the firm is a Blueprinty customer.
+
+Because Blueprinty customers are not selected at random, a raw comparison between customers and non-customers can be misleading. Older firms or firms in certain regions may naturally produce more patents, and those same types of firms may also be more likely to purchase Blueprinty's software. The analysis below therefore starts with exploratory comparisons, then fits a Poisson regression model by maximum likelihood so that customer status can be evaluated while holding firm age and region fixed.
+
+```{r setup}
+#| include: false
+
+library(readr)
+library(dplyr)
+library(tidyr)
+library(gt)
+library(tibble)
+
+blueprinty <- read_csv("blueprinty.csv", show_col_types = FALSE) |>
+  mutate(
+    iscustomer = as.integer(iscustomer),
+    customer_status = factor(
+      iscustomer,
+      levels = c(0, 1),
+      labels = c("Non-customer", "Customer")
+    ),
+    region = factor(region)
+  )
+
+# A small helper that writes simple inline SVG charts directly into the HTML.
+# This avoids external image files, so the charts remain visible when the blog
+# page is previewed locally or published through the Quarto website.
+svg_rect <- function(x, y, width, height, fill = "#2563eb", stroke = "none") {
+  sprintf('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" fill="%s" stroke="%s" />',
+          x, y, width, height, fill, stroke)
+}
+
+svg_text <- function(x, y, label, size = 12, anchor = "middle", weight = "400", fill = "#111827") {
+  sprintf('<text x="%.2f" y="%.2f" text-anchor="%s" font-size="%d" font-weight="%s" fill="%s">%s</text>',
+          x, y, anchor, size, weight, fill, label)
+}
+
+make_hist_svg <- function(data, value, group, breaks, title, x_label, y_label) {
+  value <- data[[value]]
+  group <- data[[group]]
+  groups <- levels(group)
+  if (is.null(groups)) groups <- unique(as.character(group))
+
+  hists <- lapply(groups, function(g) hist(value[group == g], breaks = breaks, plot = FALSE))
+  max_count <- max(unlist(lapply(hists, function(h) h$counts)))
+
+  width <- 760; height <- 360
+  margin_left <- 55; margin_right <- 25; margin_top <- 45; margin_bottom <- 65
+  panel_gap <- 45
+  panel_width <- (width - margin_left - margin_right - panel_gap) / 2
+  plot_height <- height - margin_top - margin_bottom
+
+  parts <- c(
+    sprintf('<div class="chart-title">%s</div>', title),
+    sprintf('<svg viewBox="0 0 %d %d" width="100%%" role="img" aria-label="%s">', width, height, title),
+    '<rect x="0" y="0" width="760" height="360" fill="#ffffff" />'
+  )
+
+  colors <- c("#2563eb", "#7c3aed")
+  for (j in seq_along(groups)) {
+    h <- hists[[j]]
+    x0 <- margin_left + (j - 1) * (panel_width + panel_gap)
+    y0 <- margin_top
+    parts <- c(parts,
+      svg_text(x0 + panel_width/2, 24, groups[j], 13, weight = "700"),
+      sprintf('<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="#374151" />', x0, y0 + plot_height, x0 + panel_width, y0 + plot_height),
+      sprintf('<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="#374151" />', x0, y0, x0, y0 + plot_height)
+    )
+    for (k in seq_along(h$counts)) {
+      bar_h <- if (max_count == 0) 0 else h$counts[k] / max_count * plot_height
+      bar_w <- panel_width / length(h$counts) * 0.9
+      bar_x <- x0 + (k - 1) * panel_width / length(h$counts) + panel_width / length(h$counts) * 0.05
+      bar_y <- y0 + plot_height - bar_h
+      parts <- c(parts, svg_rect(bar_x, bar_y, bar_w, bar_h, colors[j]))
+    }
+    # x tick labels
+    tick_vals <- pretty(range(breaks), n = 5)
+    tick_vals <- tick_vals[tick_vals >= min(breaks) & tick_vals <= max(breaks)]
+    for (tv in tick_vals) {
+      tx <- x0 + (tv - min(breaks)) / diff(range(breaks)) * panel_width
+      parts <- c(parts,
+        sprintf('<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="#9ca3af" />', tx, y0 + plot_height, tx, y0 + plot_height + 4),
+        svg_text(tx, y0 + plot_height + 18, tv, 10)
+      )
+    }
+  }
+
+  y_ticks <- pretty(c(0, max_count), n = 5)
+  y_ticks <- y_ticks[y_ticks >= 0 & y_ticks <= max_count]
+  for (yt in y_ticks) {
+    yy <- margin_top + plot_height - ifelse(max_count == 0, 0, yt / max_count * plot_height)
+    parts <- c(parts,
+      sprintf('<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="#e5e7eb" />', margin_left, yy, width - margin_right, yy),
+      svg_text(margin_left - 8, yy + 4, yt, 10, anchor = "end")
+    )
+  }
+  parts <- c(parts,
+    svg_text(width / 2, height - 18, x_label, 12),
+    sprintf('<text x="16" y="180" transform="rotate(-90 16,180)" text-anchor="middle" font-size="12" fill="#111827">%s</text>', y_label),
+    '</svg>'
+  )
+  paste(parts, collapse = "\n")
+}
+
+make_region_svg <- function(data) {
+  tab <- data |>
+    count(customer_status, region) |>
+    group_by(customer_status) |>
+    mutate(share = n / sum(n)) |>
+    ungroup()
+
+  regions <- levels(data$region)
+  groups <- levels(data$customer_status)
+  width <- 760; height <- 370
+  ml <- 60; mr <- 25; mt <- 35; mb <- 75
+  plot_w <- width - ml - mr; plot_h <- height - mt - mb
+  max_share <- max(tab$share)
+  colors <- c("#2563eb", "#7c3aed")
+  group_w <- plot_w / length(regions)
+  bar_w <- group_w * 0.32
+
+  parts <- c(
+    '<div class="chart-title">Regional Composition by Customer Status</div>',
+    '<svg viewBox="0 0 760 370" width="100%" role="img" aria-label="Regional composition by customer status">',
+    '<rect x="0" y="0" width="760" height="370" fill="#ffffff" />'
+  )
+
+  y_ticks <- seq(0, ceiling(max_share * 10) / 10, by = 0.1)
+  for (yt in y_ticks) {
+    yy <- mt + plot_h - yt / max(y_ticks) * plot_h
+    parts <- c(parts,
+      sprintf('<line x1="%s" y1="%.2f" x2="%s" y2="%.2f" stroke="#e5e7eb" />', ml, yy, width - mr, yy),
+      svg_text(ml - 8, yy + 4, paste0(round(yt * 100), "%"), 10, anchor = "end")
+    )
+  }
+
+  for (i in seq_along(regions)) {
+    center <- ml + (i - 0.5) * group_w
+    for (j in seq_along(groups)) {
+      val <- tab$share[tab$region == regions[i] & tab$customer_status == groups[j]]
+      if (length(val) == 0) val <- 0
+      bh <- val / max(y_ticks) * plot_h
+      bx <- center + (j - 1.5) * bar_w
+      by <- mt + plot_h - bh
+      parts <- c(parts, svg_rect(bx, by, bar_w * 0.9, bh, colors[j]))
+    }
+    parts <- c(parts, svg_text(center, mt + plot_h + 18, regions[i], 10))
+  }
+
+  parts <- c(parts,
+    sprintf('<line x1="%s" y1="%s" x2="%s" y2="%s" stroke="#374151" />', ml, mt + plot_h, width - mr, mt + plot_h),
+    sprintf('<line x1="%s" y1="%s" x2="%s" y2="%s" stroke="#374151" />', ml, mt, ml, mt + plot_h),
+    svg_rect(250, height - 35, 14, 14, colors[1]), svg_text(270, height - 23, groups[1], 11, anchor = "start"),
+    svg_rect(390, height - 35, 14, 14, colors[2]), svg_text(410, height - 23, groups[2], 11, anchor = "start"),
+    '</svg>'
+  )
+  paste(parts, collapse = "\n")
+}
+
+make_loglik_svg <- function(grid) {
+  width <- 760; height <- 360
+  ml <- 65; mr <- 25; mt <- 35; mb <- 58
+  plot_w <- width - ml - mr; plot_h <- height - mt - mb
+  xr <- range(grid$lambda); yr <- range(grid$log_likelihood)
+  sx <- function(x) ml + (x - xr[1]) / diff(xr) * plot_w
+  sy <- function(y) mt + plot_h - (y - yr[1]) / diff(yr) * plot_h
+
+  pts <- paste(sprintf('%.2f,%.2f', sx(grid$lambda), sy(grid$log_likelihood)), collapse = ' ')
+  mle <- grid$lambda[which.max(grid$log_likelihood)]
+
+  parts <- c(
+    '<div class="chart-title">Log-Likelihood for a Simple Poisson Model</div>',
+    '<svg viewBox="0 0 760 360" width="100%" role="img" aria-label="Log-likelihood curve for simple Poisson model">',
+    '<rect x="0" y="0" width="760" height="360" fill="#ffffff" />'
+  )
+
+  for (yt in pretty(yr, n = 5)) {
+    if (yt >= yr[1] && yt <= yr[2]) {
+      yy <- sy(yt)
+      parts <- c(parts,
+        sprintf('<line x1="%s" y1="%.2f" x2="%s" y2="%.2f" stroke="#e5e7eb" />', ml, yy, width - mr, yy),
+        svg_text(ml - 8, yy + 4, round(yt), 10, anchor = "end")
+      )
+    }
+  }
+  for (xt in pretty(xr, n = 6)) {
+    if (xt >= xr[1] && xt <= xr[2]) {
+      xx <- sx(xt)
+      parts <- c(parts,
+        sprintf('<line x1="%.2f" y1="%s" x2="%.2f" y2="%s" stroke="#9ca3af" />', xx, mt + plot_h, xx, mt + plot_h + 4),
+        svg_text(xx, mt + plot_h + 18, xt, 10)
+      )
+    }
+  }
+  parts <- c(parts,
+    sprintf('<polyline points="%s" fill="none" stroke="#2563eb" stroke-width="3" />', pts),
+    sprintf('<line x1="%.2f" y1="%s" x2="%.2f" y2="%s" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6,5" />', sx(mle), mt, sx(mle), mt + plot_h),
+    svg_text(sx(mle) + 8, mt + 18, paste0('MLE = ', round(mle, 3)), 11, anchor = "start", weight = "700", fill = "#7c3aed"),
+    sprintf('<line x1="%s" y1="%s" x2="%s" y2="%s" stroke="#374151" />', ml, mt + plot_h, width - mr, mt + plot_h),
+    sprintf('<line x1="%s" y1="%s" x2="%s" y2="%s" stroke="#374151" />', ml, mt, ml, mt + plot_h),
+    svg_text(width / 2, height - 18, 'lambda', 12),
+    '<text x="18" y="180" transform="rotate(-90 18,180)" text-anchor="middle" font-size="12" fill="#111827">Log-likelihood</text>',
+    '</svg>'
+  )
+  paste(parts, collapse = "\n")
+}
+```
+
+## Exploring the Data
+
+The dataset contains `r nrow(blueprinty)` mature engineering firms. The outcome variable, `patents`, records how many patents each firm was awarded over the last five years. The key explanatory variable is `iscustomer`, which indicates whether the firm uses Blueprinty's software.
+
+```{r patent-summary-table}
+#| echo: false
+
+patent_summary <- blueprinty |>
+  group_by(customer_status) |>
+  summarise(
+    firms = n(),
+    mean_patents = mean(patents),
+    median_patents = median(patents),
+    sd_patents = sd(patents),
+    .groups = "drop"
+  )
+
+patent_summary |>
+  gt() |>
+  fmt_number(columns = c(mean_patents, median_patents, sd_patents), decimals = 2) |>
+  cols_label(
+    customer_status = "Group",
+    firms = "Number of firms",
+    mean_patents = "Mean patents",
+    median_patents = "Median patents",
+    sd_patents = "Standard deviation"
+  ) |>
+  tab_header(title = "Patent Awards by Customer Status")
+```
+
+Blueprinty customers have a higher raw average number of patents than non-customers. In this dataset, customers average `r round(patent_summary$mean_patents[patent_summary$customer_status == 'Customer'], 2)` patents over five years, compared with `r round(patent_summary$mean_patents[patent_summary$customer_status == 'Non-customer'], 2)` for non-customers. This difference is consistent with the marketing team's claim, but the distributions also overlap substantially. Some non-customers have many patents, and some customers have few or none. Customer status alone is therefore not enough to explain patent outcomes.
+
+```{r patent-histograms}
+#| echo: false
+#| results: asis
+
+cat(make_hist_svg(
+  blueprinty,
+  value = "patents",
+  group = "customer_status",
+  breaks = seq(-0.5, max(blueprinty$patents) + 0.5, by = 1),
+  title = "Patent Award Distributions by Customer Status",
+  x_label = "Patents awarded in the last five years",
+  y_label = "Number of firms"
+))
+cat('<p class="chart-note">Both histograms use the same x-axis scale so the two groups can be compared directly.</p>')
+```
+
+Next, it is important to check whether customers and non-customers look similar on other characteristics. Region matters because engineering ecosystems, industry mix, patenting intensity, and access to patent-related services can vary geographically. The chart below shows that Blueprinty's customer base is not regionally balanced. Customers are heavily concentrated in the Northeast, while non-customers are more evenly spread across the five regions.
+
+```{r region-distribution}
+#| echo: false
+#| results: asis
+
+cat(make_region_svg(blueprinty))
+cat('<p class="chart-note">The bars show each region\'s share within the customer or non-customer group.</p>')
+```
+
+Firm age may also matter. Older firms may have more established research pipelines, larger legal teams, and more accumulated technical knowledge. In this sample, Blueprinty customers are slightly older on average, although both groups cover a wide range of firm ages.
+
+```{r age-summary-table}
+#| echo: false
+
+age_summary <- blueprinty |>
+  group_by(customer_status) |>
+  summarise(
+    mean_age = mean(age),
+    median_age = median(age),
+    min_age = min(age),
+    max_age = max(age),
+    .groups = "drop"
+  )
+
+age_summary |>
+  gt() |>
+  fmt_number(columns = c(mean_age, median_age, min_age, max_age), decimals = 1) |>
+  cols_label(
+    customer_status = "Group",
+    mean_age = "Mean age",
+    median_age = "Median age",
+    min_age = "Minimum age",
+    max_age = "Maximum age"
+  ) |>
+  tab_header(title = "Firm Age by Customer Status")
+```
+
+```{r age-histograms}
+#| echo: false
+#| results: asis
+
+cat(make_hist_svg(
+  blueprinty,
+  value = "age",
+  group = "customer_status",
+  breaks = seq(floor(min(blueprinty$age)), ceiling(max(blueprinty$age)) + 2, by = 2.5),
+  title = "Firm Age Distributions by Customer Status",
+  x_label = "Firm age since incorporation",
+  y_label = "Number of firms"
+))
+cat('<p class="chart-note">The age distributions support controlling for firm age in the model.</p>')
+```
+
+The exploratory evidence shows why a regression model is necessary. The raw customer difference is suggestive, but customers and non-customers also differ in region and age. The model below adjusts for those observable differences.
+
+## A Simple Poisson Model via Maximum Likelihood
+
+The outcome is a count: patents awarded over a five-year period. Counts are non-negative integers, so a Normal model is not a natural starting point. A Poisson model is more appropriate because it is designed for non-negative integer outcomes and is controlled by one positive rate parameter, λ, which is also the expected count.
+
+Suppose first that every firm has the same patent rate:
+
+<div class="eq">Y<sub>i</sub> ~ Poisson(λ).</div>
+
+For a single observation, the probability mass function is
+
+<div class="eq">f(Y<sub>i</sub> | λ) = e<sup>-λ</sup> λ<sup>Y<sub>i</sub></sup> / Y<sub>i</sub>!</div>
+
+Assuming the observations are independent and identically distributed, the joint likelihood is the product of the individual probabilities:
+
+<div class="eq">L(λ | Y<sub>1</sub>, ..., Y<sub>n</sub>) = Π<sub>i=1</sub><sup>n</sup> [e<sup>-λ</sup> λ<sup>Y<sub>i</sub></sup> / Y<sub>i</sub>!]</div>
+
+Taking logs turns the product into a sum:
+
+<div class="eq">ℓ(λ) = Σ<sub>i=1</sub><sup>n</sup> log[e<sup>-λ</sup> λ<sup>Y<sub>i</sub></sup> / Y<sub>i</sub>!] = Σ<sub>i=1</sub><sup>n</sup> [-λ + Y<sub>i</sub> log(λ) - log(Y<sub>i</sub>!)]</div>
+
+The log-likelihood is easier to optimize numerically and is equivalent for maximum-likelihood estimation because the log function is monotonic.
+
+```{r simple-poisson-function}
+#| code-fold: false
+
+poisson_loglikelihood <- function(lambda, Y) {
+  if (lambda <= 0) return(-Inf)
+  sum(-lambda + Y * log(lambda) - lgamma(Y + 1))
+}
+```
+
+The figure below evaluates the log-likelihood over a grid of possible λ values. The peak of the curve is the maximum likelihood estimate: the value of λ that makes the observed patent counts most likely under the simple Poisson model.
+
+```{r simple-loglikelihood-plot}
+#| echo: false
+#| results: asis
+
+Y <- blueprinty$patents
+lambda_grid <- seq(0.1, 8, length.out = 400)
+loglik_grid <- tibble(
+  lambda = lambda_grid,
+  log_likelihood = sapply(lambda_grid, poisson_loglikelihood, Y = Y)
+)
+
+cat(make_loglik_svg(loglik_grid))
+cat('<p class="chart-note">The vertical dashed line marks the maximum, which occurs at the sample mean of the patent counts.</p>')
+```
+
+The analytic solution confirms the visual result. Starting from
+
+<div class="eq">ℓ(λ) = Σ<sub>i=1</sub><sup>n</sup> [-λ + Y<sub>i</sub> log(λ) - log(Y<sub>i</sub>!)]</div>
+
+we differentiate with respect to λ:
+
+<div class="eq">dℓ/dλ = Σ<sub>i=1</sub><sup>n</sup> (-1 + Y<sub>i</sub>/λ) = -n + (1/λ)Σ<sub>i=1</sub><sup>n</sup>Y<sub>i</sub></div>
+
+Setting the derivative equal to zero gives
+
+<div class="eq">0 = -n + (1/λ)ΣY<sub>i</sub> &nbsp;&nbsp; ⇒ &nbsp;&nbsp; λ̂<sub>MLE</sub> = (1/n)ΣY<sub>i</sub> = Ȳ.</div>
+
+This result is intuitive because the mean of a Poisson distribution is λ. The MLE chooses the Poisson rate that matches the observed average count.
+
+```{r optimize-simple-mle}
+#| code-fold: false
+
+lambda_optim <- optimize(
+  f = poisson_loglikelihood,
+  interval = c(0.0001, max(Y) + 1),
+  Y = Y,
+  maximum = TRUE
+)
+
+simple_mle_table <- tibble(
+  method = c("Numerical MLE from optimize()", "Sample mean"),
+  estimate = c(lambda_optim$maximum, mean(Y))
+)
+
+simple_mle_table |>
+  gt() |>
+  fmt_number(columns = estimate, decimals = 4) |>
+  cols_label(method = "Method", estimate = "Estimated lambda") |>
+  tab_header(title = "Simple Poisson MLE")
+```
+
+The numerical MLE and the sample mean are essentially identical. That agreement is exactly what the derivative showed: in a one-parameter Poisson model with a common λ, maximum likelihood estimates the rate by the sample average.
+
+## Poisson Regression
+
+The simple model assumes every firm has the same expected patent count. That is too restrictive for this case because firms differ in age, region, and customer status. Poisson regression extends the model by allowing each firm to have its own expected patent count:
+
+<div class="eq">Y<sub>i</sub> ~ Poisson(λ<sub>i</sub>), &nbsp;&nbsp;&nbsp; λ<sub>i</sub> = exp(X<sub>i</sub>'β).</div>
+
+The exponential inverse link is important. The linear index X<sub>i</sub>'β can be any real number, but a Poisson rate must be positive. Exponentiating the linear index guarantees λ<sub>i</sub> &gt; 0.
+
+The covariate matrix includes an intercept, firm age, age squared, region indicators, and customer status. Age squared is included because the relationship between age and patent output may be curved rather than perfectly linear. One region is omitted automatically as the reference group, which avoids perfect collinearity with the intercept.
+
+```{r poisson-regression-likelihood}
+#| code-fold: false
+
+poisson_regression_loglikelihood <- function(beta, Y, X) {
+  eta <- as.vector(X %*% beta)
+  lambda <- exp(eta)
+  sum(Y * eta - lambda - lgamma(Y + 1))
+}
+
+negative_poisson_regression_loglikelihood <- function(beta, Y, X) {
+  -poisson_regression_loglikelihood(beta, Y, X)
+}
+```
+
+```{r fit-poisson-regression}
+#| code-fold: true
+
+Y <- blueprinty$patents
+X <- model.matrix(
+  patents ~ age + I(age^2) + region + iscustomer,
+  data = blueprinty
+)
+
+# Fit a standard glm first. This is used both as a check and as a stable
+# starting point for the custom maximum-likelihood optimizer.
+glm_fit <- glm(
+  patents ~ age + I(age^2) + region + iscustomer,
+  data = blueprinty,
+  family = poisson()
+)
+
+start_beta <- as.numeric(coef(glm_fit))
+
+mle_fit <- optim(
+  par = start_beta,
+  fn = negative_poisson_regression_loglikelihood,
+  Y = Y,
+  X = X,
+  method = "BFGS",
+  hessian = TRUE,
+  control = list(maxit = 10000)
+)
+
+beta_hat <- as.numeric(mle_fit$par)
+se_hat <- sqrt(diag(solve(mle_fit$hessian)))
+
+glm_coef <- coef(summary(glm_fit))
+
+# model.matrix() and glm() use the same coefficient order for this formula.
+# The checks below force the document to stop if that ever changes.
+stopifnot(length(beta_hat) == nrow(glm_coef))
+stopifnot(length(se_hat) == nrow(glm_coef))
+
+model_table <- tibble(
+  term = rownames(glm_coef),
+  mle_estimate = beta_hat,
+  mle_se = se_hat,
+  glm_estimate = as.numeric(glm_coef[, "Estimate"]),
+  glm_se = as.numeric(glm_coef[, "Std. Error"]),
+  rate_ratio = exp(beta_hat)
+)
+
+model_table |>
+  gt() |>
+  fmt_number(
+    columns = c(mle_estimate, mle_se, glm_estimate, glm_se, rate_ratio),
+    decimals = 4
+  ) |>
+  cols_label(
+    term = "Term",
+    mle_estimate = "MLE estimate",
+    mle_se = "MLE SE",
+    glm_estimate = "GLM estimate",
+    glm_se = "GLM SE",
+    rate_ratio = "Rate ratio"
+  ) |>
+  tab_spanner(label = "Manual maximum likelihood", columns = c(mle_estimate, mle_se)) |>
+  tab_spanner(label = "R glm() check", columns = c(glm_estimate, glm_se)) |>
+  tab_header(title = "Poisson Regression Results")
+```
+
+The manual maximum-likelihood estimates match the estimates from `glm()` very closely. This is a useful check because both methods optimize the same Poisson log-likelihood. Small standard-error differences can occur because the manual calculation uses the numerical Hessian returned by `optim()`, while `glm()` uses its own fitting routine and information-matrix calculations.
+
+The coefficient signs are sensible. The age coefficient is positive while the age-squared coefficient is negative, suggesting that expected patent counts rise with firm age at first but eventually flatten or decline. The region coefficients are measured relative to the omitted reference region, so they represent regional differences after controlling for age and customer status. The customer coefficient is positive. In a Poisson model, exponentiating this coefficient gives a rate ratio of about `r round(exp(beta_hat[which(rownames(glm_coef) == 'iscustomer')]), 3)`. In other words, holding age and region fixed, Blueprinty customers are estimated to have about `r round((exp(beta_hat[which(rownames(glm_coef) == 'iscustomer')]) - 1) * 100, 1)`% higher expected patent counts than otherwise similar non-customers.
+
+## The Effect of Blueprinty's Software
+
+The regression coefficient is useful, but it is not directly measured in “additional patents.” Poisson regression is multiplicative because the model uses λ<sub>i</sub> = exp(X<sub>i</sub>'β). To express the customer relationship in a more intuitive unit, we can construct two counterfactual datasets:
+
+1. X<sub>0</sub>: every firm is treated as a non-customer.
+2. X<sub>1</sub>: every firm is treated as a Blueprinty customer.
+
+Each firm's age and region stay exactly the same in both datasets. Only customer status changes. The average of ŷ<sub>1</sub> − ŷ<sub>0</sub> estimates the difference in expected patents associated with being a Blueprinty customer, holding observed age and region fixed.
+
+```{r counterfactual-effect}
+#| code-fold: true
+
+X0 <- X
+X1 <- X
+customer_col <- which(colnames(X) == "iscustomer")
+X0[, customer_col] <- 0
+X1[, customer_col] <- 1
+
+pred0 <- as.vector(exp(X0 %*% beta_hat))
+pred1 <- as.vector(exp(X1 %*% beta_hat))
+
+average_effect <- mean(pred1 - pred0)
+
+counterfactual_table <- tibble(
+  scenario = c(
+    "All firms treated as non-customers",
+    "All firms treated as Blueprinty customers",
+    "Average difference"
+  ),
+  average_expected_patents = c(mean(pred0), mean(pred1), average_effect)
+)
+
+counterfactual_table |>
+  gt() |>
+  fmt_number(columns = average_expected_patents, decimals = 3) |>
+  cols_label(
+    scenario = "Counterfactual scenario",
+    average_expected_patents = "Average expected patents"
+  ) |>
+  tab_header(title = "Estimated Customer Effect in Patent Counts")
+```
+
+The model estimates that being a Blueprinty customer is associated with approximately `r round(average_effect, 3)` additional patents over five years, after holding firm age and region fixed at each firm's observed values. Equivalently, the adjusted expected patent count rises from about `r round(mean(pred0), 3)` patents under the all-non-customer counterfactual to about `r round(mean(pred1), 3)` patents under the all-customer counterfactual.
+
+This result supports Blueprinty's marketing claim in an observational, model-based sense: customers have higher expected patent counts even after adjusting for age and region. However, the analysis does not prove that the software itself causes the increase. Firms choose whether to become customers, and the dataset may omit important differences such as R&D budget, number of engineers, industry subfield, legal support, or patent application volume. A careful conclusion is that the evidence is consistent with Blueprinty's claim, but a randomized experiment or stronger before-and-after design would be needed to make a stronger causal statement.

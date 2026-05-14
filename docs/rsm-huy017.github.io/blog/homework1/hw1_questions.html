@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Huiru Yang">
+<meta name="dcterms.date" content="2026-05-13">
+
+<title>A/B Testing a Call to Action – Qiang Hu</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Qiang Hu</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../resume.html"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../hobbies.html"> 
+<span class="menu-text">Hobbies</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/rsm-qih029"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/qiang-hu-12971385"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">A/B Testing a Call to Action</h1>
+<p class="subtitle lead">Simulating Key Ideas from Classical Frequentist Statistics</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Huiru Yang </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 13, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Suppose I run a website with a landing page that invites visitors to subscribe to a newsletter. A small design choice on that page is the wording of the call to action, or CTA. One version might say, “Sign up for our newsletter here!” while another says, “Stay up to date by signing up!” Even though the difference is only a few words, the language may affect whether a visitor chooses to subscribe.This also makes the simulation useful as a teaching example, because the results can be compared directly with the known data-generating process.</p>
+<p>To learn which message works better, I can run an A/B test. In an A/B test, visitors are randomly assigned to one of two versions of a page or feature. Here, some visitors see CTA A and others see CTA B. Because the assignment is random, the two groups should be comparable on average, so any systematic difference in sign-up behavior can be attributed to the CTA itself rather than to pre-existing differences across visitors.</p>
+<p>The goal of this post is to use a simulated A/B test to explain several core ideas from classical frequentist statistics. By working in a setting where the true probabilities are known, it becomes easier to see how estimation, uncertainty, hypothesis testing, and common pitfalls such as repeated peeking fit together.</p>
+</section>
+<section id="the-ab-test-as-a-statistical-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-ab-test-as-a-statistical-problem">The A/B Test as a Statistical Problem</h2>
+<p>From a statistical perspective, each visitor produces a binary outcome: either they sign up for the newsletter or they do not. That means each observation can be modeled as a draw from a Bernoulli distribution, where the parameter <span class="math inline">\(\pi\)</span> represents the probability of signing up.</p>
+<p>Because the CTA a visitor sees may influence that probability, it makes sense to define separate parameters for the two groups. Let <span class="math inline">\(\pi_A\)</span> be the probability of signing up after seeing CTA A, and let <span class="math inline">\(\pi_B\)</span> be the probability of signing up after seeing CTA B. For each person, the outcome is coded as 1 if they sign up and 0 otherwise.</p>
+<p>The quantity of interest is the difference in sign-up rates between the two CTAs:</p>
+<p><span class="math display">\[
+\theta = \pi_A - \pi_B
+\]</span></p>
+<p>If <span class="math inline">\(\theta &gt; 0\)</span>, CTA A performs better. If <span class="math inline">\(\theta &lt; 0\)</span>, CTA B performs better. If <span class="math inline">\(\theta = 0\)</span>, the two CTAs perform equally well.</p>
+<p>A natural estimator for this quantity is the difference in sample means:</p>
+<p><span class="math display">\[
+\hat{\theta} = \bar{X}_A - \bar{X}_B
+\]</span></p>
+<p>Because each observation is either 0 or 1, the sample mean in each group is just the observed sign-up proportion. In other words, <span class="math inline">\(\bar{X}_A = \hat{\pi}_A\)</span> and <span class="math inline">\(\bar{X}_B = \hat{\pi}_B\)</span>. So the difference in means is also the difference in observed conversion rates.</p>
+</section>
+<section id="simulating-data" class="level2">
+<h2 class="anchored" data-anchor-id="simulating-data">Simulating Data</h2>
+<p>In a real experiment, the true sign-up probabilities would be unknown. That is exactly why we would run the A/B test in the first place. For this exercise, however, it is useful to choose the probabilities ourselves so that we know the truth and can evaluate how well our statistical tools recover it.</p>
+<p>I set the true sign-up probability for CTA A to <span class="math inline">\(\pi_A = 0.22\)</span> and the true sign-up probability for CTA B to <span class="math inline">\(\pi_B = 0.18\)</span>. This means the true treatment effect is</p>
+<p><span class="math display">\[
+\theta = \pi_A - \pi_B = 0.04
+\]</span></p>
+<p>So in the population, CTA A outperforms CTA B by 4 percentage points. Using these values, I simulated 1,000 visitors in group A and 1,000 visitors in group B, storing each observation as a 1 if the visitor signed up and 0 otherwise. These simulated data will be used throughout the rest of the analysis.</p>
+<p>The sample summary is shown below.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Summary of the simulated A/B test sample</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Quantity</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Estimated sign-up rate for CTA A</td>
+<td style="text-align: right;">0.225</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Estimated sign-up rate for CTA B</td>
+<td style="text-align: right;">0.182</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Estimated treatment effect</td>
+<td style="text-align: right;">0.043</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>In this particular simulation, the estimated sign-up rate for CTA A is 0.225 and the estimated sign-up rate for CTA B is 0.182. The estimated treatment effect is therefore 0.043. These sample values are not exactly equal to the true probabilities, which is exactly what we should expect in finite samples.</p>
+</section>
+<section id="the-law-of-large-numbers" class="level2">
+<h2 class="anchored" data-anchor-id="the-law-of-large-numbers">The Law of Large Numbers</h2>
+<p>The Law of Large Numbers says that as the sample size grows, the sample mean converges to the population mean. In the A/B testing context, that idea is crucial because our estimator <span class="math inline">\(\hat{\theta} = \bar{X}_A - \bar{X}_B\)</span> is built from sample means. If each group is large enough, the sample proportions should settle down near their true values, and the estimated difference should get closer to the true treatment effect.</p>
+<p>To illustrate this, I computed the element-wise difference between the simulated draws from groups A and B and then calculated the cumulative average of those differences. This running mean shows what the estimate looks like as more and more observations are included.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw1_questions_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>At the beginning of the figure, the running average is noisy because early estimates are based on very little information. A few unusual outcomes can move the estimate a lot when the sample is tiny. As the sample size grows, however, the running average becomes more stable and moves toward the true value of 0.04. This is the Law of Large Numbers in action: larger samples deliver more stable and more reliable estimates.</p>
+</section>
+<section id="bootstrap-standard-errors" class="level2">
+<h2 class="anchored" data-anchor-id="bootstrap-standard-errors">Bootstrap Standard Errors</h2>
+<p>An estimate by itself is not enough. We also want to know how much uncertainty surrounds it. One way to measure that uncertainty is with a standard error, which captures how much an estimator would vary across repeated samples.</p>
+<p>The bootstrap provides a practical way to approximate this variability. The basic idea is to treat the observed sample as a stand-in for the population, repeatedly resample from it with replacement, and recompute the statistic of interest each time. The spread of those bootstrap estimates then approximates the sampling variability of the estimator.</p>
+<p>In this analysis, I generated 1,000 bootstrap replications of the treatment effect. For each bootstrap sample, I resampled the observations from group A and group B separately and recalculated the difference in means. The standard deviation of those bootstrap estimates is the bootstrap standard error.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw1_questions_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The bootstrap distribution is centered near the original sample estimate and shows the range of values that appear due to sampling variability. The bootstrap standard error is 0.0171, while the usual analytical standard error is 0.0180. These two values are quite close, which is reassuring. It suggests that both the resampling approach and the formula-based approach are telling a similar story about uncertainty in the estimate.</p>
+<p>A 95% confidence interval based on the bootstrap standard error is shown below.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Estimated uncertainty around the treatment effect</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Quantity</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Bootstrap standard error</td>
+<td style="text-align: right;">0.0171</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Analytical standard error</td>
+<td style="text-align: right;">0.0180</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">95% CI lower bound</td>
+<td style="text-align: right;">0.0095</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">95% CI upper bound</td>
+<td style="text-align: right;">0.0765</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>This interval runs from 0.0095 to 0.0765. Because the entire interval lies above zero in this simulation, it suggests that CTA A outperforms CTA B.</p>
+</section>
+<section id="the-central-limit-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="the-central-limit-theorem">The Central Limit Theorem</h2>
+<p>The Central Limit Theorem is one of the key reasons that classical inference works so well. It says that under fairly general conditions, the sampling distribution of a properly standardized sample mean becomes approximately normal as the sample size grows. Since our estimator is a difference in sample means, the same general logic applies here as well.</p>
+<p>To demonstrate this idea, I repeatedly simulated the treatment effect estimate using different sample sizes: 25, 50, 100, and 500 observations per group. For each sample size, I generated 1,000 estimates and plotted their distributions.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw1_questions_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The pattern is what the Central Limit Theorem predicts. When the sample size is small, the distribution is somewhat rough and dispersed. As the sample size increases, the distribution becomes more concentrated around the true value and also looks more bell-shaped. This matters because normal approximations are the foundation of confidence intervals and hypothesis tests. The theorem explains why those approximations become increasingly accurate in larger samples.</p>
+</section>
+<section id="hypothesis-testing" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis Testing</h2>
+<p>A common goal in an A/B test is to assess whether the observed difference could plausibly be explained by random chance alone. This leads to a hypothesis test.</p>
+<p>The null hypothesis is that the two CTAs perform equally well:</p>
+<p><span class="math display">\[
+H_0: \theta = 0
+\]</span></p>
+<p>The alternative hypothesis is that the treatment effect is not zero:</p>
+<p><span class="math display">\[
+H_A: \theta \neq 0
+\]</span></p>
+<p>To evaluate the evidence against the null, I compute a z-statistic by dividing the estimated treatment effect by its analytical standard error:</p>
+<p><span class="math display">\[
+z = \frac{\hat{\theta}}{\text{SE}(\hat{\theta})}
+\]</span></p>
+<p>Large values of the statistic in absolute value indicate that the observed estimate is far from zero relative to the amount of sampling noise we would expect under the null hypothesis.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Hypothesis test results</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Quantity</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">z-statistic</td>
+<td style="text-align: right;">2.3917</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">p-value</td>
+<td style="text-align: right;">0.0168</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>In this simulation, the z-statistic is 2.392 and the two-sided p-value is 0.0168. Because the p-value is below 0.05, I would reject the null hypothesis at the 5% significance level. In practical terms, the data provide evidence that the wording of the CTA affects sign-up behavior.</p>
+<p>That said, the p-value should not be interpreted as the probability that the null hypothesis is true. Instead, it is the probability of observing a result at least this extreme if the null hypothesis were true. That distinction is central to the frequentist framework.</p>
+</section>
+<section id="the-t-test-as-a-regression" class="level2">
+<h2 class="anchored" data-anchor-id="the-t-test-as-a-regression">The T-Test as a Regression</h2>
+<p>One useful insight in applied statistics is that many familiar hypothesis tests can also be expressed as regressions. In the A/B testing setup, I can define a treatment indicator <span class="math inline">\(D_i\)</span> that equals 1 if observation <span class="math inline">\(i\)</span> belongs to CTA A and 0 if it belongs to CTA B. Then I estimate the linear model</p>
+<p><span class="math display">\[
+Y_i = \alpha + \beta D_i + \varepsilon_i
+\]</span></p>
+<p>where <span class="math inline">\(Y_i\)</span> is the sign-up outcome.</p>
+<p>In this regression, the intercept <span class="math inline">\(\alpha\)</span> is the mean outcome in the control group, which is group B, and the coefficient <span class="math inline">\(\beta\)</span> is the difference in mean outcomes between group A and group B. That means <span class="math inline">\(\beta\)</span> is exactly the treatment effect estimator from the two-sample comparison.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Regression version of the A/B test</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Quantity</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Coefficient on D</td>
+<td style="text-align: right;">0.0430</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Standard error</td>
+<td style="text-align: right;">0.0180</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">t-statistic</td>
+<td style="text-align: right;">2.3905</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">p-value</td>
+<td style="text-align: right;">0.0169</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The estimated coefficient on the treatment indicator is 0.043, which exactly matches the difference in sample means. The corresponding t-statistic and p-value also lead to the same substantive conclusion as the earlier hypothesis test. This illustrates an important connection: the classic two-sample t-test and a regression with a binary treatment indicator are two ways of expressing the same underlying analysis.</p>
+<p>That connection becomes especially useful in more complicated settings, because regression provides a flexible framework for adding covariates, interactions, and more elaborate designs while preserving the same basic intuition.</p>
+</section>
+<section id="the-problem-with-peeking" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem-with-peeking">The Problem with Peeking</h2>
+<p>One of the most common mistakes in experimentation is peeking. Peeking means repeatedly checking the data as they arrive and stopping the experiment as soon as a statistically significant result appears. This behavior is tempting because it feels efficient, but it changes the properties of the test.</p>
+<p>A standard hypothesis test with a 5% significance level is designed so that, under the null hypothesis, the false positive rate is about 5% when the test is conducted once at a pre-specified sample size. But if I test after 100 observations, then again after 200, then again after 300, and continue until 1,000, I create many chances to get a significant result just by luck. As a result, the overall false positive rate becomes larger than 5%.</p>
+<p>To illustrate this, I simulated 5,000 experiments under the null hypothesis where the two CTAs actually have the same conversion probability of 0.20. In each simulated experiment, I checked the p-value every 100 observations and recorded whether significance appeared at any point.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Effect of repeated peeking under the null</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Quantity</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">False positive rate with repeated peeking</td>
+<td style="text-align: right;">0.1836</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The simulated false positive rate with repeated peeking is 0.184, which is substantially larger than 0.05. This means that even when there is truly no effect, repeatedly checking the data and stopping when significance appears can make a useless CTA look successful.</p>
+<p>The lesson is simple but important: an experiment should ideally have a pre-registered stopping rule or sample size determined in advance. If interim analyses are necessary, then they should be handled with methods specifically designed for sequential testing. Otherwise, ordinary p-values and confidence intervals can become misleading.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This simulated A/B test provides a concrete way to understand several core ideas from classical frequentist statistics. The setup is simple: compare two versions of a call to action and estimate the difference in sign-up rates. But inside that simple comparison are many of the main tools of statistical inference.</p>
+<p>The Law of Large Numbers explains why our sample averages become more stable as the sample grows. The bootstrap gives a flexible way to measure uncertainty. The Central Limit Theorem explains why sampling distributions become approximately normal, allowing us to use z-tests and confidence intervals. Hypothesis testing offers a formal way to assess whether the observed effect is consistent with random chance. Regression shows that the same comparison can be expressed in a broader and more flexible modeling framework. And the peeking example demonstrates how easy it is to misuse these tools if experimental decisions are made after seeing the data.</p>
+<p>Substantively, this simulation was built so that CTA A truly performed better than CTA B, and the sample analysis was able to recover that signal. More importantly, the exercise shows that frequentist methods are not just abstract formulas. They are practical tools for making decisions under uncertainty, and A/B testing is one of the clearest real-world settings in which those tools come to life. For a real website experiment, the next step would be to define the sample size and stopping rule before launching the test, so that the final inference remains valid.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
